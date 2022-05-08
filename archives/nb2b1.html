@@ -187,7 +187,7 @@ pre{
       
         <li>
           <a class="nav home " href="https://travellings.link/" id="https:travellings.link" rel="external nofollow noopener noreferrer" target="_blank">
-            <i class="fas fa-link fa-fw"></i>&nbsp;开往-友链接力
+            <i class="fas fa-subway fa-fw"></i>&nbsp;开往
           </a>
         </li>
       
@@ -403,10 +403,10 @@ pre{
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-04-15T01:04:46+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-05-06T16:28:54+08:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2022年4月15日</p>
+    <p>本页文档最后更新于：2022年5月6日</p>
   </a>
 </div>
 
@@ -596,7 +596,7 @@ pre{
 <h4 id="store">使用商店中的插件</h4>
 
 <p>(<code>2022年1月24日16:24:05</code>部分插件未适配最新版nb,请参考：<a href="https://github.com/Lancercmd/nonebot2-store-test/issues/1" target="_blank" rel="external nofollow noopener noreferrer">📝 NoneBot2 商店插件兼容性报告 </a>)</p>
-<p>在<a href="https://v2.nonebot.dev/store.html" target="_blank" rel="external nofollow noopener noreferrer">nb的商店</a>中，有很多插件，比如这个黑丝插件</p>
+<p>在<a href="https://v2.nonebot.dev/store" target="_blank" rel="external nofollow noopener noreferrer">nb的商店</a>中，有很多插件，比如这个黑丝插件</p>
 <p style="text-align:center;">
 <a href="https://cdn.yzyyz.top/nonebot/nbstore2.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="nonebot"><img src="https://cdn.yzyyz.top/nonebot/nbstore2.png"></a></p>
 
@@ -695,7 +695,7 @@ pre{
 <p><del><strong>事件处理函数中，除<code>bot</code>外都是可选的</strong></del></p>
 <p><strong>b1中,按需传入参数，bot也可以不传，反正这里可以这样写，读者日后慢慢会理解</strong></p>
 <ul>
-<li><p>第10行调用我们编写的函数获取到链接，12行中<code>send()</code>函数根据<code>event</code>向触发事件的主体发送消息。<a href="https://v2.nonebot.dev/2.0.0a15/api/adapters/ding.html#async-send-event-message-at-sender-false-webhook-none-secret-none-kwargs" target="_blank" rel="external nofollow noopener noreferrer">点我查看参数</a> </p>
+<li><p>第10行调用我们编写的函数获取到链接，12行中<code>send()</code>函数根据<code>event</code>向触发事件的主体发送消息。<a href="https://v2.nonebot.dev/docs/next/tutorial/plugin/matcher-operation#send" target="_blank" rel="external nofollow noopener noreferrer">点我查看参数</a> </p>
 <p>  我们在注册事件时传入了Event故这里可以直接<code>sixty.send(message=xxx)</code>,我们也可以：<code>bot.send(event=event,message=xxx)</code></p>
 <p>其中<code>message</code>参数是我们要发送的消息，可以是纯文本 <code>message=&quot;你好&quot;</code> ，这里使用的 <code>MessageSegment</code> 是nb对cq协议的适配，可用于发送CQ码等（个人理解），即:</p>
   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">await</span> sixty.send(message=MessageSegment.image(img_url))</span><br></pre></td></tr></table></figure>
@@ -1113,9 +1113,6 @@ pre{
 
 
   <div class="content">
-    
-      <p>开往-友链接力</p>
-
     
       <p><a href="https://travellings.now.sh/" target="_blank" rel="external nofollow noopener noreferrer"><img src="https://travellings.link/assets/logo.gif" height="50px"></a></p>
 

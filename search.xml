@@ -929,25 +929,6 @@
     
     
     <entry>
-      <title>ip签名图php源码</title>
-      <link href="/archives/24a74b09.html"/>
-      <url>/archives/24a74b09.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p style="text-align:center;"><a href="https://cdn.yzyyz.top/img/ip.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="ip"><img src="https://cdn.yzyyz.top/img/ip.png"></a></p><a id="more"></a>这里我放上源码<br>```来源于网络```<br>源码是**php**的喜欢的话，自己在美化一下，更换图片等直接上传到支持php的空间,再调用即可<hr><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在html中插入：</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://39.98.144.53/ip"</span>&gt;</span></span><br><span class="line">"<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://39.98.144.53/ip"</span>&gt;</span>"</span><br><span class="line">这是是放在我的服务器里的，你可以直接调用</span><br><span class="line">（2020年11月上方的图片将无法正常调用，届时会更新此文）</span><br></pre></td></tr></table></figure><hr><br>预览图：<br><img src="http://39.98.144.53/ip" title="点击下载"><hr><br>源码下载地址（蓝奏云）<br><a href="https://www.lanzous.com/iajmfvc" target="_blank" rel="external nofollow noopener noreferrer">https://www.lanzous.com/iajmfvc</a>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 干货 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Python基础</title>
       <link href="/archives/798b9e52.html"/>
       <url>/archives/798b9e52.html</url>

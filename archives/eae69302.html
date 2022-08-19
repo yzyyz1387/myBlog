@@ -411,10 +411,10 @@ pre{
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-20T12:59:32+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-08-17T21:07:24+08:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年12月20日</p>
+    <p>本页文档最后更新于：2022年8月17日</p>
   </a>
 </div>
 
@@ -441,19 +441,13 @@ pre{
 原题：FreeWater--方便同学的小项目
 2021年6月18日做出更改
 
-<h3 id="f">相关文章</h3>
-
-<ul>
+<h1 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h1><ul>
 <li><a href="http://water.yzyyz.top" target="_blank" rel="external nofollow noopener noreferrer">项目地址</a></li>
 <li><a href="https://www.coolapk.com/feed/27304566?shareKey=ZTIzYTllNDU3MmZlNjBjMDg1YTE~&shareUid=775290&shareFrom=com.coolapk.market_11.2.3" target="_blank" rel="external nofollow noopener noreferrer">酷友文章</a></li>
 </ul>
-<h3 id="s">项目概述</h3>
-
-<hr>
+<h1 id="项目概述"><a href="#项目概述" class="headerlink" title="项目概述"></a>项目概述</h1><hr>
 <p>西农学生宿舍里的直饮水机，以前接水刷卡即可，现在学校跟支付宝合作，使用企鹅共享，接水时需要扫码，再点击解锁，再按下机器上的按钮，才能出水，十分繁琐。本项目将扫码并点击手机中”解锁”按钮这一步进行简化，在app中点击一个按钮便可完成。</p>
-<h3 id="t">项目内容</h3>
-
-<hr>
+<h1 id="项目内容"><a href="#项目内容" class="headerlink" title="项目内容"></a>项目内容</h1><hr>
 <p>于是我对扫码解锁进行了抓包，发现解锁机器只用提交两个数据，<code>machineFunctionId</code> 和 <code>token</code>,请求地址为 <code>https://userapi.qiekj.com/machine/water/unlock</code></p>
 <p>machineFunctionId是机器的id，token是每个支付宝用户登录企鹅共享生成的token，下一次登录时token会更新，抓到token后不再去登录企鹅共享则该token可一直使用。</p>
 <p>该项目后台主要是php提交post，此处感谢<strong>π</strong>的技术支持。起初只是为了自己方便，而现在<code>2021年6月9日17:19:52</code>该项目已经覆盖29*2台机器（冷热）</p>
@@ -465,30 +459,20 @@ pre{
 <p>如传入<code>machine=4n1e-ice</code>（4北校1楼东侧冷水），php则在<code>xxx.txt</code>中找到对应id为<code>202009041308369270000010955664458</code>,再将id和token一起向<code>https://userapi.qiekj.com/machine/water/unlock</code>提交post请求，返回值为：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"code"</span>: <span class="number">0</span>, </span><br><span class="line">    <span class="attr">"msg"</span>: <span class="string">"成功"</span>, </span><br><span class="line">    <span class="attr">"data"</span>: &#123;</span><br><span class="line">        <span class="attr">"msgId"</span>: <span class="string">"xxxxxx"</span></span><br><span class="line">    &#125;, </span><br><span class="line">    <span class="attr">"t"</span>: xxxxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>表示解锁成功，值得注意的是，该token代表我的支付宝账户(实现每个人都使用自己的token我不会。。。。)，故用户接水<strong>花的是我的钱</strong>，目前稳定在平均每天10元左右，项目得以继续并不是因为我是土豪，而是因为有各位用户的捐赠，但还是有白嫖用户，故预计后期将上线用户系统，限制白嫖用户的使用。</p>
-<h3 id="fo">项目新内容</h3>
-
-<hr>
+<h1 id="项目新内容"><a href="#项目新内容" class="headerlink" title="项目新内容"></a>项目新内容</h1><hr>
 <p>飞鱼发现了企鹅共享的网页版： <a href="http://h5.qiekj.com" target="_blank" rel="external nofollow noopener noreferrer">https://h5.qiekj.com</a> 在该网页中可以使用手机号及验证码登录，随后我进行抓包内容如下：</p>
-<h4 id="sendcode">发送验证码</h4>
-
-<p>请求地址：<code>https://useraoi.qiekj.com/common/sms/sendCode</code><br>post参数：<code>phone=手机号&amp;template=reg</code><br>返回值：</p>
+<h2 id="发送验证码"><a href="#发送验证码" class="headerlink" title="发送验证码"></a>发送验证码</h2><p>请求地址：<code>https://useraoi.qiekj.com/common/sms/sendCode</code><br>post参数：<code>phone=手机号&amp;template=reg</code><br>返回值：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"code"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"msg"</span>: <span class="string">"成功"</span>,</span><br><span class="line">    <span class="attr">"data"</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">"t"</span>: xxxxxxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>表示验证码发送成功</p>
-<h4 id="login">登录</h4>
-
-<p>请求地址：<code>https://useraoi.qiekj.com/user/reg</code><br>post参数：<code>channel=h5&amp;phone=手机号&amp;verify=验证码</code><br>返回值：</p>
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p>请求地址：<code>https://useraoi.qiekj.com/user/reg</code><br>post参数：<code>channel=h5&amp;phone=手机号&amp;verify=验证码</code><br>返回值：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"code"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"msg"</span>: <span class="string">"成功"</span>,</span><br><span class="line">    <span class="attr">"data"</span>: &#123;</span><br><span class="line">        <span class="attr">"token"</span>: <span class="string">"xxxxxxxxxxxx"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"t"</span>: xxxxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>表示登录成功，在这里我们就获取到了token，故重构了前面提到的php,新加传入参数<code>token</code><br>则用户可使用自己的账户接水</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$Token=$_GET[<span class="string">'token'</span>];</span><br></pre></td></tr></table></figure>
 
-<h4 id="infom">获取用户信息</h4>
-
-<p>请求地址：<code>https://useraoi.qiekj.com/user/info</code><br>post参数：<code>token=xxxxxxxxxxxx</code><br>返回值：</p>
+<h2 id="获取用户信息"><a href="#获取用户信息" class="headerlink" title="获取用户信息"></a>获取用户信息</h2><p>请求地址：<code>https://useraoi.qiekj.com/user/info</code><br>post参数：<code>token=xxxxxxxxxxxx</code><br>返回值：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"code"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"msg"</span>: <span class="string">"成功"</span>,</span><br><span class="line">    <span class="attr">"data"</span>: &#123;</span><br><span class="line">        <span class="attr">"id"</span>: xxxxxxxxxx,</span><br><span class="line">        <span class="attr">"userName"</span>: 用户企鹅共享昵称,</span><br><span class="line">        <span class="attr">"sex"</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="attr">"birthday"</span>: <span class="literal">null</span>,</span><br><span class="line">        <span class="attr">"phone"</span>: 手机号,</span><br><span class="line">        <span class="attr">"headImageId"</span>: 头像链接（直链）,</span><br><span class="line">        <span class="attr">"balance"</span>: <span class="string">"0.00"</span>,</span><br><span class="line">        <span class="attr">"unCompleteOrders"</span>: <span class="literal">null</span>,</span><br><span class="line">        <span class="attr">"hasVip"</span>: <span class="literal">false</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"t"</span>: xxxxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>标识获取成功，并返回相应信息</p>
-<h3 id="upload">更新</h3>
-
-<hr>
+<h1 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h1><hr>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(2021-06-18 00:44)        2.1 beta 1.0.1修复上版冷水按钮的问题</span><br><span class="line">(2021-06-18 00:00)        2.1 beta 1.0支持自己的账户登录</span><br><span class="line">                          2.0.2-1 解决软件报毒的问题（采取自愿更新，可在官网下载，软件不提示更新）</span><br><span class="line">                          2.0.2 更新后端运行策略，（特别感谢π的技术支持)暂时修复侧滑中捐赠存在的问题，选择机器页增加加群按钮，预计同期更新官网部分UI</span><br><span class="line">                          2.0.1 修复按钮隐藏后不恢复可见性的问题</span><br><span class="line">(2021-05-24 21:34)        2.0 全新版本，支持多楼层使用，增加侧滑页面</span><br><span class="line">(2021-05-20 00:38)        1.0 首次发布，支持四号楼1楼东侧饮水机的使用</span><br></pre></td></tr></table></figure>
 <p><code>2021年6月18日</code>的更新实现了使用自己的账户登录，并新增了用户协议，协议地址：<a href="http://water.yzyyz.top/yhxy.html" target="_blank" rel="external nofollow noopener noreferrer">用户服务协议和隐私政策</a></p>
 <ul>
@@ -731,7 +715,7 @@ pre{
 
 
     <div class="content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#f"><span class="toc-number">1.</span> <span class="toc-text">相关文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#s"><span class="toc-number">2.</span> <span class="toc-text">项目概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#t"><span class="toc-number">3.</span> <span class="toc-text">项目内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fo"><span class="toc-number">4.</span> <span class="toc-text">项目新内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sendcode"><span class="toc-number">4.1.</span> <span class="toc-text">发送验证码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#login"><span class="toc-number">4.2.</span> <span class="toc-text">登录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#infom"><span class="toc-number">4.3.</span> <span class="toc-text">获取用户信息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#upload"><span class="toc-number">5.</span> <span class="toc-text">更新</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#发送验证码"><span class="toc-number">1.</span> <span class="toc-text">发送验证码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#登录"><span class="toc-number">2.</span> <span class="toc-text">登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取用户信息"><span class="toc-number">3.</span> <span class="toc-text">获取用户信息</span></a></li></ol>
     </div>
   </section>
 
@@ -948,7 +932,7 @@ pre{
 
 
     <div class="content">
-      <a href="/tags/Hexo/" style="font-size: 18.29px; color: #7c7c7c">Hexo</a> <a href="/tags/Python/" style="font-size: 22.57px; color: #5f5f5f">Python</a> <a href="/tags/UP/" style="font-size: 15.43px; color: #8f8f8f">UP</a> <a href="/tags/%E5%85%AC%E5%91%8A/" style="font-size: 14px; color: #999">公告</a> <a href="/tags/%E5%9C%A8%E8%A5%BF%E5%86%9C/" style="font-size: 19.71px; color: #727272">在西农</a> <a href="/tags/%E5%B9%B2%E8%B4%A7/" style="font-size: 21.14px; color: #686868">干货</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 16.86px; color: #868686">开发</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 15.43px; color: #8f8f8f">机器人</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E8%B5%84%E6%BA%90/" style="font-size: 15.43px; color: #8f8f8f">资源</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 24px; color: #555">随笔</a>
+      <a href="/tags/Hexo/" style="font-size: 18px; color: #7e7e7e">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/tags/Python/" style="font-size: 22px; color: #636363">Python</a> <a href="/tags/UP/" style="font-size: 16px; color: #8b8b8b">UP</a> <a href="/tags/%E4%B8%8B%E5%8E%A8%E6%88%BF/" style="font-size: 14px; color: #999">下厨房</a> <a href="/tags/%E5%85%AC%E5%91%8A/" style="font-size: 14px; color: #999">公告</a> <a href="/tags/%E5%9C%A8%E8%A5%BF%E5%86%9C/" style="font-size: 20px; color: #707070">在西农</a> <a href="/tags/%E5%B9%B2%E8%B4%A7/" style="font-size: 22px; color: #636363">干货</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 18px; color: #7e7e7e">开发</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 16px; color: #8b8b8b">机器人</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E8%B5%84%E6%BA%90/" style="font-size: 16px; color: #8b8b8b">资源</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 24px; color: #555">随笔</a>
     </div>
   </section>
 
@@ -1056,7 +1040,7 @@ setInterval("createtime()",250);
    
 <!---字数统计----->
 <i class="fas fa-chart-area"></i>
-<span class="post-count">字数统计：50.9k</span>
+<span class="post-count">字数统计：54.6k</span>
 <br>
 
 <div style="display:flex;justify-content: center;align-content: center;"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://beian.miit.gov.cn/" style="display: flex;align-content: center;align-items: flex-end;"><img class="icp-icon" src="https://cdn.jsdelivr.net/gh/yzyyz1387/blogimages/icp.png" alt="ICP"><span>陕ICP备2020016014号-1</span></a>  |  <a href="https://icp.gov.moe/?keyword=20222112" target="_blank" style rel="external nofollow noopener noreferrer">萌ICP备20222112号</a></div>

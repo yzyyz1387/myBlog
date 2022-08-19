@@ -411,10 +411,10 @@ pre{
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-07-29T11:46:05+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-08-17T21:19:18+08:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年7月29日</p>
+    <p>本页文档最后更新于：2022年8月17日</p>
   </a>
 </div>
 
@@ -431,12 +431,8 @@ pre{
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h3 id="hljs">一、Highlight.js网页代码高亮</h3>
-
-<p>项目关于页面使用了<a href="https://highlightjs.org/" target="_blank" rel="external nofollow noopener noreferrer">highlight.js</a>来让代码高亮<br>地址：<a href="http://vd.yzyyz.top/team" target="_blank" rel="external nofollow noopener noreferrer">http://vd.yzyyz.top/team</a></p>
-<h3 id="msg">二、Python实现的简单留言功能</h3>
-
-<p>地址：<a href="http://vd.yzyyz.top/inmsg" target="_blank" rel="external nofollow noopener noreferrer">http://vd.yzyyz.top/inmsg</a></p>
+          <h1 id="一、Highlight-js网页代码高亮"><a href="#一、Highlight-js网页代码高亮" class="headerlink" title="一、Highlight.js网页代码高亮"></a>一、Highlight.js网页代码高亮</h1><p>项目关于页面使用了<a href="https://highlightjs.org/" target="_blank" rel="external nofollow noopener noreferrer">highlight.js</a>来让代码高亮<br>地址：<a href="http://vd.yzyyz.top/team" target="_blank" rel="external nofollow noopener noreferrer">http://vd.yzyyz.top/team</a></p>
+<h1 id="二、Python实现的简单留言功能"><a href="#二、Python实现的简单留言功能" class="headerlink" title="二、Python实现的简单留言功能"></a>二、Python实现的简单留言功能</h1><p>地址：<a href="http://vd.yzyyz.top/inmsg" target="_blank" rel="external nofollow noopener noreferrer">http://vd.yzyyz.top/inmsg</a></p>
 <p>项目源码：源码：<a href="https://github.com/yzyyz1387/flask-visualData-practice" target="_blank" rel="external nofollow noopener noreferrer">https://github.com/yzyyz1387/flask-visualData-practice</a></p>
 <p>在原先基础上增加了留言页面，原理较为简单，也没互斥锁自旋锁等，基于Flask框架，从网页传递表单数据，存入数据库，再显示出来,源码：</p>
 <a id="more"></a>
@@ -445,7 +441,7 @@ pre{
 
 
 <p>html显示留言部分</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> &#123;% for v in smsg %&#125;</span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6 mb-4"</span> <span class="attr">data-aos</span>=<span class="string">"fade-up"</span> <span class="attr">data-aos-delay</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">	       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"service d-flex h-100"</span>&gt;</span></span><br><span class="line">		       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"svg-icon"</span>&gt;</span></span><br><span class="line">			        <span class="comment">&lt;!-- 楼层 --&gt;</span></span><br><span class="line">			        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; v[0] &#125;&#125;楼<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">			        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"service-about"</span>&gt;</span></span><br><span class="line">			       <span class="comment">&lt;!-- 用户名 --&gt;</span></span><br><span class="line">			        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>&#123;&#123; v[1] &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">			        <span class="comment">&lt;!--留言内容 --&gt;</span></span><br><span class="line">			        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; v[3] &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">			         <span class="comment">&lt;!--留言时间 --&gt;</span></span><br><span class="line">			        <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"font-size: 10px"</span>&gt;</span>留言于：&#123;&#123; v[4] &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> &#123;% for v in smsg %&#125;</span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6 mb-4"</span> <span class="attr">data-aos</span>=<span class="string">"fade-up"</span> <span class="attr">data-aos-delay</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">	       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"service d-flex h-100"</span>&gt;</span></span><br><span class="line">		       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"svg-icon"</span>&gt;</span></span><br><span class="line">			        <span class="comment">&lt;!-- 楼层 --&gt;</span></span><br><span class="line">			        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; v[0] &#125;&#125;楼<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">			        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"service-about"</span>&gt;</span></span><br><span class="line">			       <span class="comment">&lt;!-- 用户名 --&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">h3</span>&gt;</span>&#123;&#123; v[1] &#125;&#125;<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">			        <span class="comment">&lt;!--留言内容 --&gt;</span></span><br><span class="line">			        <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; v[3] &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">			         <span class="comment">&lt;!--留言时间 --&gt;</span></span><br><span class="line">			        <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"font-size: 10px"</span>&gt;</span>留言于：&#123;&#123; v[4] &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
 
 
 <p>html表单部分</p>
@@ -532,12 +528,8 @@ pre{
   <div class="-mob-share-list share-body">
     
       
-        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yzyyz.top/archives/9ce8dfe4.html&title=VisualData项目补充 | 稚昂长&summary=一、Highlight.js网页代码高亮
-
-项目关于页面使用了highlight.js来让代码高亮地址：http://vd.yzyyz.top/team
-二、Python实现的简单留言功能
-
-地址：http://vd.yzyyz.top/inmsg
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yzyyz.top/archives/9ce8dfe4.html&title=VisualData项目补充 | 稚昂长&summary=一、Highlight.js网页代码高亮项目关于页面使用了highlight.js来让代码高亮地址：http://vd.yzyyz.top/team
+二、Python实现的简单留言功能地址：http://vd.yzyyz.top/inmsg
 项目源码：源码：https://github.com/yzyyz1387/flask-visualData-practice
 在原先基础上增加了留言页面，原理较为简单，也没互斥锁自旋锁等，基于Flask框架，从网页传递表单数据，存入数据库，再显示出来,源码：" target="_blank">
           
@@ -547,12 +539,8 @@ pre{
       
     
       
-        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yzyyz.top/archives/9ce8dfe4.html&title=VisualData项目补充 | 稚昂长&summary=一、Highlight.js网页代码高亮
-
-项目关于页面使用了highlight.js来让代码高亮地址：http://vd.yzyyz.top/team
-二、Python实现的简单留言功能
-
-地址：http://vd.yzyyz.top/inmsg
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yzyyz.top/archives/9ce8dfe4.html&title=VisualData项目补充 | 稚昂长&summary=一、Highlight.js网页代码高亮项目关于页面使用了highlight.js来让代码高亮地址：http://vd.yzyyz.top/team
+二、Python实现的简单留言功能地址：http://vd.yzyyz.top/inmsg
 项目源码：源码：https://github.com/yzyyz1387/flask-visualData-practice
 在原先基础上增加了留言页面，原理较为简单，也没互斥锁自旋锁等，基于Flask框架，从网页传递表单数据，存入数据库，再显示出来,源码：" target="_blank">
           
@@ -562,12 +550,8 @@ pre{
       
     
       
-        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://yzyyz.top/archives/9ce8dfe4.html&title=VisualData项目补充 | 稚昂长&summary=一、Highlight.js网页代码高亮
-
-项目关于页面使用了highlight.js来让代码高亮地址：http://vd.yzyyz.top/team
-二、Python实现的简单留言功能
-
-地址：http://vd.yzyyz.top/inmsg
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://yzyyz.top/archives/9ce8dfe4.html&title=VisualData项目补充 | 稚昂长&summary=一、Highlight.js网页代码高亮项目关于页面使用了highlight.js来让代码高亮地址：http://vd.yzyyz.top/team
+二、Python实现的简单留言功能地址：http://vd.yzyyz.top/inmsg
 项目源码：源码：https://github.com/yzyyz1387/flask-visualData-practice
 在原先基础上增加了留言页面，原理较为简单，也没互斥锁自旋锁等，基于Flask框架，从网页传递表单数据，存入数据库，再显示出来,源码：" target="_blank">
           
@@ -697,7 +681,7 @@ pre{
 
 
     <div class="content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#hljs"><span class="toc-number">1.</span> <span class="toc-text">一、Highlight.js网页代码高亮</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#msg"><span class="toc-number">2.</span> <span class="toc-text">二、Python实现的简单留言功能</span></a></li></ol>
+      
     </div>
   </section>
 
@@ -914,7 +898,7 @@ pre{
 
 
     <div class="content">
-      <a href="/tags/Hexo/" style="font-size: 18.29px; color: #7c7c7c">Hexo</a> <a href="/tags/Python/" style="font-size: 22.57px; color: #5f5f5f">Python</a> <a href="/tags/UP/" style="font-size: 15.43px; color: #8f8f8f">UP</a> <a href="/tags/%E5%85%AC%E5%91%8A/" style="font-size: 14px; color: #999">公告</a> <a href="/tags/%E5%9C%A8%E8%A5%BF%E5%86%9C/" style="font-size: 19.71px; color: #727272">在西农</a> <a href="/tags/%E5%B9%B2%E8%B4%A7/" style="font-size: 21.14px; color: #686868">干货</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 16.86px; color: #868686">开发</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 15.43px; color: #8f8f8f">机器人</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E8%B5%84%E6%BA%90/" style="font-size: 15.43px; color: #8f8f8f">资源</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 24px; color: #555">随笔</a>
+      <a href="/tags/Hexo/" style="font-size: 18px; color: #7e7e7e">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/tags/Python/" style="font-size: 22px; color: #636363">Python</a> <a href="/tags/UP/" style="font-size: 16px; color: #8b8b8b">UP</a> <a href="/tags/%E4%B8%8B%E5%8E%A8%E6%88%BF/" style="font-size: 14px; color: #999">下厨房</a> <a href="/tags/%E5%85%AC%E5%91%8A/" style="font-size: 14px; color: #999">公告</a> <a href="/tags/%E5%9C%A8%E8%A5%BF%E5%86%9C/" style="font-size: 20px; color: #707070">在西农</a> <a href="/tags/%E5%B9%B2%E8%B4%A7/" style="font-size: 22px; color: #636363">干货</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 18px; color: #7e7e7e">开发</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 16px; color: #8b8b8b">机器人</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E8%B5%84%E6%BA%90/" style="font-size: 16px; color: #8b8b8b">资源</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 24px; color: #555">随笔</a>
     </div>
   </section>
 
@@ -1022,7 +1006,7 @@ setInterval("createtime()",250);
    
 <!---字数统计----->
 <i class="fas fa-chart-area"></i>
-<span class="post-count">字数统计：50.9k</span>
+<span class="post-count">字数统计：54.6k</span>
 <br>
 
 <div style="display:flex;justify-content: center;align-content: center;"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://beian.miit.gov.cn/" style="display: flex;align-content: center;align-items: flex-end;"><img class="icp-icon" src="https://cdn.jsdelivr.net/gh/yzyyz1387/blogimages/icp.png" alt="ICP"><span>陕ICP备2020016014号-1</span></a>  |  <a href="https://icp.gov.moe/?keyword=20222112" target="_blank" style rel="external nofollow noopener noreferrer">萌ICP备20222112号</a></div>

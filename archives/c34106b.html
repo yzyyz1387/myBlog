@@ -411,10 +411,10 @@ pre{
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-20T12:59:32+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-08-17T21:05:16+08:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年12月20日</p>
+    <p>本页文档最后更新于：2022年8月17日</p>
   </a>
 </div>
 
@@ -438,8 +438,7 @@ pre{
 <p>本文将介绍如何在Android上搭建Hexo博客</p>
 <a id="more"></a>
 
-<h3 id="bg">背景</h3>
-<hr>
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><hr>
 
 <p>昨天（0点之前）答应<strong><a href="http://yuanenen.cn" target="_blank" rel="external nofollow noopener noreferrer" title="小袁的博客">小袁</a></strong>帮他部署hexo博客到<strong><a href="https://coding.net/" target="_blank" rel="external nofollow noopener noreferrer" title="Coding">Coding</a></strong>。忙完自己的事躺上床，顺便在群里回了一句，谁成想小袁还没睡，那好吧，我就现在帮他弄，我以为只是建个仓库让后他自己<strong><font color="#3898fc">git</font></strong>就行,结果这老哥没弄过Hexo，而且用电脑也不方便，瞬间感觉今夜无人入眠了，十几分钟前：</p>
 <blockquote>
@@ -451,33 +450,28 @@ pre{
 </blockquote>
 <p>我……………….</p>
 <p>那我还是继续吧，毕竟我做事非要搞完才行。<br><br><hr><br><br></p>
-<h3 id="prepare">准备工作</h3>
-<hr>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><hr>
 
 <p>下载 <strong><a href 别点我"">Termux</a></strong> ,推荐到GooglePLay下载，版本比酷安新。</p>
-<p><code>注：初始化Termux需科学、理性地上网</code><br><br><br><br></p><h3 id="start">开始</h3><p></p>
+<p><code>注：初始化Termux需科学、理性地上网</code><br><br><br><br># 开始</p>
 <hr>
-<h4 id="runtermux">运行Termux</h4>
+## 运行Termux
 
-<h4 id="installSth">安装</h4>
-
-<p><strong><font color="red">安装过程中出现【y/n】输入 y 并回车即可</font></strong> </p>
-<h5 id="nodejs">安装Nodejs</h5>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install nodejs</span><br></pre></td></tr></table></figure>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong><font color="red">安装过程中出现【y/n】输入 y 并回车即可</font></strong> </p>
+<h3 id="安装Nodejs"><a href="#安装Nodejs" class="headerlink" title="安装Nodejs"></a>安装Nodejs</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install nodejs</span><br></pre></td></tr></table></figure>
 <p style="text-align:center;">
 <a href="https://cdn.yzyyz.top/img/ahnode.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="andhexo"><img src="https://cdn.yzyyz.top/img/ahnode.jpg"></a></p>
 
 
 <br>
-<h5 id="git">安装Git</h5>
+### 安装Git
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install git</span><br></pre></td></tr></table></figure>
 <p style="text-align:center;">
 <a href="https://cdn.yzyyz.top/img/ahgit.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="andhexo"><img src="https://cdn.yzyyz.top/img/ahgit.jpg"></a></p>
 
 
 <br>
-<h5 id="hexo">安装Hexo</h5>
+### 安装Hexo
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <p>如果后续出现ERROR Deployer not found: git的报错<br>则执行<code>npm install hexo-deployer-git --save</code></p>
@@ -485,7 +479,7 @@ pre{
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd blog</span><br></pre></td></tr></table></figure>
 <p>原截图太长这儿就不放图了</p>
 <br>
-<h5 id="npm">安装依赖</h5>
+### 安装依赖
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
 
@@ -507,9 +501,9 @@ pre{
 <p><br><br><br></p>
 <hr>
 <br>
-<h4 id="push">部署</h4>
+## 部署
 <br>
-<h5 id="ssh">配置git初始设置</h5>
+### 配置git初始设置
 
 <p>安装openssh</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install openssh</span><br></pre></td></tr></table></figure>
@@ -529,16 +523,12 @@ pre{
 <p style="text-align:center;">
 <a href="https://cdn.yzyyz.top/img/ahgitc.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="andhexo"><img src="https://cdn.yzyyz.top/img/ahgitc.jpg"></a></p>
 
-<h5 id="ssh1">配置sshkey</h5>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C 邮箱</span><br></pre></td></tr></table></figure>
+<h3 id="配置sshkey"><a href="#配置sshkey" class="headerlink" title="配置sshkey"></a>配置sshkey</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C 邮箱</span><br></pre></td></tr></table></figure>
 <p><font color="red">注意这一有三次回车</font></p>
 <p style="text-align:center;">
 <a href="https://cdn.yzyyz.top/img/ahs3.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="andhexo"><img src="https://cdn.yzyyz.top/img/ahs3.jpg"></a></p>
 
-<h5 id="ssh2">查看公匙</h5>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
+<h3 id="查看公匙"><a href="#查看公匙" class="headerlink" title="查看公匙"></a>查看公匙</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
 
 <p>获取公匙后在修改一下配置文件，按照常规方法部署到Coding就好啦</p>
 <br>
@@ -784,7 +774,7 @@ pre{
 
 
     <div class="content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#bg"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#prepare"><span class="toc-number">2.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#start"><span class="toc-number">3.</span> <span class="toc-text">开始</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#runtermux"><span class="toc-number">3.1.</span> <span class="toc-text">运行Termux</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#installSth"><span class="toc-number">3.2.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#nodejs"><span class="toc-number">3.2.1.</span> <span class="toc-text">安装Nodejs</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#git"><span class="toc-number">3.2.2.</span> <span class="toc-text">安装Git</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#hexo"><span class="toc-number">3.2.3.</span> <span class="toc-text">安装Hexo</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#npm"><span class="toc-number">3.2.4.</span> <span class="toc-text">安装依赖</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#push"><span class="toc-number">3.3.</span> <span class="toc-text">部署</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#ssh"><span class="toc-number">3.3.1.</span> <span class="toc-text">配置git初始设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ssh1"><span class="toc-number">3.3.2.</span> <span class="toc-text">配置sshkey</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#ssh2"><span class="toc-number">3.3.3.</span> <span class="toc-text">查看公匙</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Nodejs"><span class="toc-number">1.1.</span> <span class="toc-text">安装Nodejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置sshkey"><span class="toc-number">1.2.</span> <span class="toc-text">配置sshkey</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看公匙"><span class="toc-number">1.3.</span> <span class="toc-text">查看公匙</span></a></li></ol></li></ol>
     </div>
   </section>
 
@@ -1001,7 +991,7 @@ pre{
 
 
     <div class="content">
-      <a href="/tags/Hexo/" style="font-size: 18.29px; color: #7c7c7c">Hexo</a> <a href="/tags/Python/" style="font-size: 22.57px; color: #5f5f5f">Python</a> <a href="/tags/UP/" style="font-size: 15.43px; color: #8f8f8f">UP</a> <a href="/tags/%E5%85%AC%E5%91%8A/" style="font-size: 14px; color: #999">公告</a> <a href="/tags/%E5%9C%A8%E8%A5%BF%E5%86%9C/" style="font-size: 19.71px; color: #727272">在西农</a> <a href="/tags/%E5%B9%B2%E8%B4%A7/" style="font-size: 21.14px; color: #686868">干货</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 16.86px; color: #868686">开发</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 15.43px; color: #8f8f8f">机器人</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E8%B5%84%E6%BA%90/" style="font-size: 15.43px; color: #8f8f8f">资源</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 24px; color: #555">随笔</a>
+      <a href="/tags/Hexo/" style="font-size: 18px; color: #7e7e7e">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/tags/Python/" style="font-size: 22px; color: #636363">Python</a> <a href="/tags/UP/" style="font-size: 16px; color: #8b8b8b">UP</a> <a href="/tags/%E4%B8%8B%E5%8E%A8%E6%88%BF/" style="font-size: 14px; color: #999">下厨房</a> <a href="/tags/%E5%85%AC%E5%91%8A/" style="font-size: 14px; color: #999">公告</a> <a href="/tags/%E5%9C%A8%E8%A5%BF%E5%86%9C/" style="font-size: 20px; color: #707070">在西农</a> <a href="/tags/%E5%B9%B2%E8%B4%A7/" style="font-size: 22px; color: #636363">干货</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 18px; color: #7e7e7e">开发</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 16px; color: #8b8b8b">机器人</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E8%B5%84%E6%BA%90/" style="font-size: 16px; color: #8b8b8b">资源</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 24px; color: #555">随笔</a>
     </div>
   </section>
 
@@ -1109,7 +1099,7 @@ setInterval("createtime()",250);
    
 <!---字数统计----->
 <i class="fas fa-chart-area"></i>
-<span class="post-count">字数统计：50.9k</span>
+<span class="post-count">字数统计：54.6k</span>
 <br>
 
 <div style="display:flex;justify-content: center;align-content: center;"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://beian.miit.gov.cn/" style="display: flex;align-content: center;align-items: flex-end;"><img class="icp-icon" src="https://cdn.jsdelivr.net/gh/yzyyz1387/blogimages/icp.png" alt="ICP"><span>陕ICP备2020016014号-1</span></a>  |  <a href="https://icp.gov.moe/?keyword=20222112" target="_blank" style rel="external nofollow noopener noreferrer">萌ICP备20222112号</a></div>

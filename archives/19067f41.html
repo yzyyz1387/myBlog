@@ -411,10 +411,10 @@ pre{
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-20T12:59:32+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-08-17T21:21:13+08:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年12月20日</p>
+    <p>本页文档最后更新于：2022年8月17日</p>
   </a>
 </div>
 
@@ -436,22 +436,18 @@ pre{
 
 <p>（真保姆级教程）本文讲述书如何使用ESP8266开发板搭建天气站联网版，即天气数据来源于网络，有机会的话会写(搬)一篇关于从传感器获取数据的。<br>使用手机的读者点击右上角的横条可查看文章章节。</p>
 <a id="more"></a>
-<p><br></p><h3 id="prepare">前期准备</h3><p></p>
+<p><br># 前期准备</p>
 <hr>
 
 <p style="text-align:center;">
 <a href="https://cdn.yzyyz.top/img/goods.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="WeatherStation"><img src="https://cdn.yzyyz.top/img/goods.jpg"></a></p>
 
-<h4 id="buysth">购买所需品：</h4>
-
-<p><code>如下是我购买的，共27.99元，四舍五入一下为一个亿</code></p>
+<h2 id="购买所需品："><a href="#购买所需品：" class="headerlink" title="购买所需品："></a>购买所需品：</h2><p><code>如下是我购买的，共27.99元，四舍五入一下为一个亿</code></p>
 <ul>
 <li>esp8266 + OLED显示屏 + 数据线 <font color="red">26.5</font> 元</li>
 <li>母对母杜邦线  <font color="red">1.49</font> 元</li>
 </ul>
-<h4 id="api">申请天气API</h4>
-
-<ol>
+<h2 id="申请天气API"><a href="#申请天气API" class="headerlink" title="申请天气API"></a>申请天气API</h2><ol>
 <li>打开<a href="https://openweathermap.org/api" target="_blank" rel="external nofollow noopener noreferrer">openweather官网</a>并注册一个账号。</li>
 <li>前往你的注册用的邮箱，打开openweather邮件中的验证链接，验证邮箱完成注册。</li>
 <li>片刻后你会收到openweather发来的另一封邮件，你就得到了所需要的API:<p style="text-align:center;">
@@ -460,35 +456,27 @@ pre{
 
 </li>
 </ol>
-<h4 id="downloadsth">下载所需文件</h4>
-
-<p>下载所需文件：<a href="https://lanzoui.com/id00hoj" target="_blank" rel="external nofollow noopener noreferrer">点击极速下载</a><br><br><br>下载后解压到桌面（方便操作）</p>
+<h2 id="下载所需文件"><a href="#下载所需文件" class="headerlink" title="下载所需文件"></a>下载所需文件</h2><p>下载所需文件：<a href="https://lanzoui.com/id00hoj" target="_blank" rel="external nofollow noopener noreferrer">点击极速下载</a><br><br><br>下载后解压到桌面（方便操作）</p>
 <ol>
 <li>双击安装包安装Arduino</li>
 <li>根据情况打开驱动文件夹安装驱动，比如我安装的CH341SER.EXE</li>
 <li>关闭文件夹（暂时不用了）</li>
 </ol>
 <br>
-<h3 id="start">开始操作</h3>
+# 开始操作
 <hr>
 <font color="red">打开Arduino</font>
 
-<h4 id="config">配置</h4>
-
-<p>点击 <code>文件</code>→<code>首选项</code>，在面板中找到 <code>附加开发板管理网址</code>,在其后输入：<code>http://arduino.esp8266.com/stable/package_esp8266com_index.json</code></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>点击 <code>文件</code>→<code>首选项</code>，在面板中找到 <code>附加开发板管理网址</code>,在其后输入：<code>http://arduino.esp8266.com/stable/package_esp8266com_index.json</code></p>
 <p style="text-align:center;">
 <a href="https://cdn.yzyyz.top/img/warduino1.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="WeatherStation"><img src="https://cdn.yzyyz.top/img/warduino1.png"></a></p>
 
 
-<h4 id="installboard">安装开发板</h4>
-
-<p>点击<code>工具</code>→<code>开发板</code>→<code>开发板管理器</code> ，搜索8266 安装开发板</p>
+<h2 id="安装开发板"><a href="#安装开发板" class="headerlink" title="安装开发板"></a>安装开发板</h2><p>点击<code>工具</code>→<code>开发板</code>→<code>开发板管理器</code> ，搜索8266 安装开发板</p>
 <p style="text-align:center;">
 <a href="https://cdn.yzyyz.top/img/warduino2.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="WeatherStation"><img src="https://cdn.yzyyz.top/img/warduino2.png"></a></p>
 
-<h4 id="install">安装相关库</h4>
-
-<p>点击 <code>项目</code>→<code>加载库</code>→<code>管理库</code> </p>
+<h2 id="安装相关库"><a href="#安装相关库" class="headerlink" title="安装相关库"></a>安装相关库</h2><p>点击 <code>项目</code>→<code>加载库</code>→<code>管理库</code> </p>
 <ol>
 <li>搜索安装 ESP8266 Weather Station</li>
 <li>搜索安装 JSON Streaming Parser by Daniel Eichhorn</li>
@@ -498,9 +486,7 @@ pre{
 </li>
 </ol>
 <p>安装完后关闭Arduino<br><br></p>
-<h4 id="conect">连接开发板</h4>
-
-<ol>
+<h2 id="连接开发板"><a href="#连接开发板" class="headerlink" title="连接开发板"></a>连接开发板</h2><ol>
 <li><p>将开发板用数据线连接至电脑，打开电脑的 <code>设备管理器</code> → <code>端口</code> 查看你开发板的端口（不一定跟我一样，如图我的是 COM3）。</p>
 <p style="text-align:center;">
 <a href="https://cdn.yzyyz.top/img/warduino8.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="WeatherStation"><img src="https://cdn.yzyyz.top/img/warduino8.png"></a></p>
@@ -516,17 +502,13 @@ pre{
 <a href="https://cdn.yzyyz.top/img/warduino10.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="WeatherStation"><img src="https://cdn.yzyyz.top/img/warduino10.png"></a></p>
 
 
-<h4 id="oledconection">将屏幕与开发板连接</h4>
-
-<p>使用母对母杜邦线按照以下规则接线</p>
+<h2 id="将屏幕与开发板连接"><a href="#将屏幕与开发板连接" class="headerlink" title="将屏幕与开发板连接"></a>将屏幕与开发板连接</h2><p>使用母对母杜邦线按照以下规则接线</p>
 <div style="text-align:center;color:#ff7600">&nbsp;G-->gnd</div>
 <div style="text-align:center;color:#ffab00">3v-->vcc</div>
 <div style="text-align:center;color:#123eab">d4-->scl</div>
 <div style="text-align:center;color:#01939a">d3-->sda</div>
 
-<h4 id="Ltesgo">开始烧录奔放</h4>
-
-<ol>
+<h2 id="开始烧录奔放"><a href="#开始烧录奔放" class="headerlink" title="开始烧录奔放"></a>开始烧录奔放</h2><ol>
 <li>点击<code>项目</code>→<code>上传</code>， 开始等待其编译、上传。</li>
 <li>上传成功时编辑器下方贵有提示。</li>
 <li>这时按下开发板上 rst 键，等待配网、获取天气数据</li>
@@ -536,7 +518,7 @@ pre{
 <a href="https://cdn.yzyyz.top/img/wesp.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="WeatherStation"><img src="https://cdn.yzyyz.top/img/wesp.jpg"></a></p>
 
 <br> 
-<h3 id="else">后续操作</h3>
+# 后续操作
 <hr>
 可以给整个开发板+屏幕加装外壳达到美化的目的，如
  - 积木
@@ -548,7 +530,7 @@ pre{
 <a href="https://cdn.yzyyz.top/img/wjm.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="WeatherStation"><img src="https://cdn.yzyyz.top/img/wjm.jpg"></a></p>
 
 <br>
-<h3 id="problems">常见问题</h3>
+# 常见问题
 <hr>
 
 <blockquote>
@@ -567,8 +549,7 @@ pre{
 <blockquote>
 <p>出现其他问题可在下方留言，我也不一定会</p>
 </blockquote>
-<h3 id="refer">参考</h3>
-<hr>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><hr>
 
 <p>参考文章: </p>
 <ul>
@@ -815,7 +796,7 @@ pre{
 
 
     <div class="content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#prepare"><span class="toc-number">1.</span> <span class="toc-text">前期准备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#buysth"><span class="toc-number">1.1.</span> <span class="toc-text">购买所需品：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#api"><span class="toc-number">1.2.</span> <span class="toc-text">申请天气API</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#downloadsth"><span class="toc-number">1.3.</span> <span class="toc-text">下载所需文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#start"><span class="toc-number">2.</span> <span class="toc-text">开始操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#config"><span class="toc-number">2.1.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#installboard"><span class="toc-number">2.2.</span> <span class="toc-text">安装开发板</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#install"><span class="toc-number">2.3.</span> <span class="toc-text">安装相关库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#conect"><span class="toc-number">2.4.</span> <span class="toc-text">连接开发板</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#oledconection"><span class="toc-number">2.5.</span> <span class="toc-text">将屏幕与开发板连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Ltesgo"><span class="toc-number">2.6.</span> <span class="toc-text">开始烧录奔放</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#else"><span class="toc-number">3.</span> <span class="toc-text">后续操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#problems"><span class="toc-number">4.</span> <span class="toc-text">常见问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#refer"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#购买所需品："><span class="toc-number">1.</span> <span class="toc-text">购买所需品：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#申请天气API"><span class="toc-number">2.</span> <span class="toc-text">申请天气API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载所需文件"><span class="toc-number">3.</span> <span class="toc-text">下载所需文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-number">4.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装开发板"><span class="toc-number">5.</span> <span class="toc-text">安装开发板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装相关库"><span class="toc-number">6.</span> <span class="toc-text">安装相关库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#连接开发板"><span class="toc-number">7.</span> <span class="toc-text">连接开发板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将屏幕与开发板连接"><span class="toc-number">8.</span> <span class="toc-text">将屏幕与开发板连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#开始烧录奔放"><span class="toc-number">9.</span> <span class="toc-text">开始烧录奔放</span></a></li></ol>
     </div>
   </section>
 
@@ -1032,7 +1013,7 @@ pre{
 
 
     <div class="content">
-      <a href="/tags/Hexo/" style="font-size: 18.29px; color: #7c7c7c">Hexo</a> <a href="/tags/Python/" style="font-size: 22.57px; color: #5f5f5f">Python</a> <a href="/tags/UP/" style="font-size: 15.43px; color: #8f8f8f">UP</a> <a href="/tags/%E5%85%AC%E5%91%8A/" style="font-size: 14px; color: #999">公告</a> <a href="/tags/%E5%9C%A8%E8%A5%BF%E5%86%9C/" style="font-size: 19.71px; color: #727272">在西农</a> <a href="/tags/%E5%B9%B2%E8%B4%A7/" style="font-size: 21.14px; color: #686868">干货</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 16.86px; color: #868686">开发</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 15.43px; color: #8f8f8f">机器人</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E8%B5%84%E6%BA%90/" style="font-size: 15.43px; color: #8f8f8f">资源</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 24px; color: #555">随笔</a>
+      <a href="/tags/Hexo/" style="font-size: 18px; color: #7e7e7e">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/tags/Python/" style="font-size: 22px; color: #636363">Python</a> <a href="/tags/UP/" style="font-size: 16px; color: #8b8b8b">UP</a> <a href="/tags/%E4%B8%8B%E5%8E%A8%E6%88%BF/" style="font-size: 14px; color: #999">下厨房</a> <a href="/tags/%E5%85%AC%E5%91%8A/" style="font-size: 14px; color: #999">公告</a> <a href="/tags/%E5%9C%A8%E8%A5%BF%E5%86%9C/" style="font-size: 20px; color: #707070">在西农</a> <a href="/tags/%E5%B9%B2%E8%B4%A7/" style="font-size: 22px; color: #636363">干货</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 18px; color: #7e7e7e">开发</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 16px; color: #8b8b8b">机器人</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E8%B5%84%E6%BA%90/" style="font-size: 16px; color: #8b8b8b">资源</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 24px; color: #555">随笔</a>
     </div>
   </section>
 
@@ -1140,7 +1121,7 @@ setInterval("createtime()",250);
    
 <!---字数统计----->
 <i class="fas fa-chart-area"></i>
-<span class="post-count">字数统计：50.9k</span>
+<span class="post-count">字数统计：54.6k</span>
 <br>
 
 <div style="display:flex;justify-content: center;align-content: center;"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://beian.miit.gov.cn/" style="display: flex;align-content: center;align-items: flex-end;"><img class="icp-icon" src="https://cdn.jsdelivr.net/gh/yzyyz1387/blogimages/icp.png" alt="ICP"><span>陕ICP备2020016014号-1</span></a>  |  <a href="https://icp.gov.moe/?keyword=20222112" target="_blank" style rel="external nofollow noopener noreferrer">萌ICP备20222112号</a></div>

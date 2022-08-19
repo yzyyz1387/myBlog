@@ -411,10 +411,10 @@ pre{
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-20T12:59:32+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-08-17T21:14:51+08:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年12月20日</p>
+    <p>本页文档最后更新于：2022年8月17日</p>
   </a>
 </div>
 
@@ -431,9 +431,7 @@ pre{
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <h3 id="sql">SQL基础语法</h3>
-
-<p style="text-align:center;">
+          <h1 id="SQL基础语法"><a href="#SQL基础语法" class="headerlink" title="SQL基础语法"></a>SQL基础语法</h1><p style="text-align:center;">
 <a href="https://cdn.yzyyz.top/img/python.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="py"><img src="https://cdn.yzyyz.top/img/python.jpg"></a></p>
 
 <a id="more"></a>
@@ -449,96 +447,51 @@ pre{
 </blockquote>
 <hr>
 <p><strong>sql语句大小写不敏感</strong></p>
-<h3 id="add">insert插入（增）</h3>
+<h1 id="insert插入（增）"><a href="#insert插入（增）" class="headerlink" title="insert插入（增）"></a>insert插入（增）</h1><h2 id="insert-into-表名-values-值1，值…"><a href="#insert-into-表名-values-值1，值…" class="headerlink" title="insert  into  表名  values(值1，值…)"></a>insert  into  表名  values(值1，值…)</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span>  <span class="keyword">into</span>  compny  <span class="keyword">values</span>(<span class="number">1</span>，<span class="string">'陕西省'</span>，<span class="number">400123123</span>)</span><br></pre></td></tr></table></figure>
 
-<h4 id="insert">insert  into  表名  values(值1，值...)</h4>
+<h1 id="delete删除（删）"><a href="#delete删除（删）" class="headerlink" title="delete删除（删）"></a>delete删除（删）</h1><h2 id="delete-from-表名-where-字段名-值"><a href="#delete-from-表名-where-字段名-值" class="headerlink" title="delete  from  表名  where  字段名 = 值"></a>delete  from  表名  where  字段名 = 值</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span>  <span class="keyword">from</span>  compny <span class="keyword">where</span>  <span class="keyword">id</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
-
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span>  <span class="keyword">into</span>  compny  <span class="keyword">values</span>(<span class="number">1</span>，<span class="string">'陕西省'</span>，<span class="number">400123123</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="del">delete删除（删）</h3>
-
-
-<h4 id="del">delete  from  表名  where  字段名 = 值</h4>
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span>  <span class="keyword">from</span>  compny <span class="keyword">where</span>  <span class="keyword">id</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="update">update更新（改）</h3>
-
-<h4 id="update">
-update  表名  set  字段名  =  新值  where  字段名  =   旧值</h4>
-
+<h1 id="update更新（改）"><a href="#update更新（改）" class="headerlink" title="update更新（改）"></a>update更新（改）</h1><h2 id><a href="#" class="headerlink" title></a></h2><p>update  表名  set  字段名  =  新值  where  字段名  =   旧值</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span>  compny  <span class="keyword">set</span>  address  =  <span class="string">"新疆"</span>  <span class="keyword">where</span>  address  =   <span class="string">"陕西"</span></span><br></pre></td></tr></table></figure>
 
 
-<h3 id="find">select查询（查）</h3>
-
-<h4 id="select1">select  字段名  from  表名</h4>
-
-
-<p>此种查询只列出你所需要查询的字段,查询多个以 <strong>,</strong>隔开</p>
+<h1 id="select查询（查）"><a href="#select查询（查）" class="headerlink" title="select查询（查）"></a>select查询（查）</h1><h2 id="select-字段名-from-表名"><a href="#select-字段名-from-表名" class="headerlink" title="select  字段名  from  表名"></a>select  字段名  from  表名</h2><p>此种查询只列出你所需要查询的字段,查询多个以 <strong>,</strong>隔开</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">select</span>  <span class="keyword">id</span>  <span class="keyword">from</span>  compny</span><br></pre></td></tr></table></figure>
 
-<h4 id="select2">select  *  from  表名</h4>
-查询出此表的所有字段
-
+<h2 id="select-from-表名"><a href="#select-from-表名" class="headerlink" title="select  *  from  表名"></a>select  *  from  表名</h2><p>查询出此表的所有字段</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">select</span>  *  <span class="keyword">from</span>  compny</span><br></pre></td></tr></table></figure>
 
 
-<h4 id="select3">distinct关键字</h4>
-
-<p>select  distinct  字段名  from  表名</p>
+<h2 id="distinct关键字"><a href="#distinct关键字" class="headerlink" title="distinct关键字"></a>distinct关键字</h2><p>select  distinct  字段名  from  表名</p>
 <p><strong>给查询的结果去重</strong></p>
-<h3 id="where">where条件语句</h3>
-
-
-<p>在末尾加 <code>where</code> 表示条件，例如：</p>
+<h1 id="where条件语句"><a href="#where条件语句" class="headerlink" title="where条件语句"></a>where条件语句</h1><p>在末尾加 <code>where</code> 表示条件，例如：</p>
 <p>select  *  from  表名  where  字段名 = 值</p>
 <p>=, &gt;, &lt;, &gt;=, &lt;=, &lt;&gt;(不等于)都适用于where</p>
-<h3 id="andor">and  or运算符</h3>
-
-<p>and 和 or 可在 where 子语句中把两个或多个条件结合起来3</p>
+<h1 id="and-or运算符"><a href="#and-or运算符" class="headerlink" title="and  or运算符"></a>and  or运算符</h1><p>and 和 or 可在 where 子语句中把两个或多个条件结合起来3</p>
 <p>and:</p>
-<h4 id="and">select  *  from  表名  where  条件1  and  条件2</h4>
+<h2 id="select-from-表名-where-条件1-and-条件2"><a href="#select-from-表名-where-条件1-and-条件2" class="headerlink" title="select  *  from  表名  where  条件1  and  条件2"></a>select  *  from  表名  where  条件1  and  条件2</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> compny</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">0</span> <span class="keyword">and</span> address = <span class="string">"新疆"</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> compny</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">0</span> <span class="keyword">and</span> address = <span class="string">"新疆"</span></span><br></pre></td></tr></table></figure>
+<h2 id="select-from-表名-where-条件1-and-条件2-1"><a href="#select-from-表名-where-条件1-and-条件2-1" class="headerlink" title="select  *  from  表名  where  条件1  and  条件2"></a>select  *  from  表名  where  条件1  and  条件2</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> compny</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">0</span> <span class="keyword">or</span> address = <span class="string">"新疆"</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="or">select  *  from  表名  where  条件1  and  条件2</h4>
-
-
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> compny</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">id</span> = <span class="number">0</span> <span class="keyword">or</span> address = <span class="string">"新疆"</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="in">in</h3>
-
-<p>where  字段名 in 值<br>where  字段名 in (值1,值2,值3….)</p>
+<h1 id="in"><a href="#in" class="headerlink" title="in"></a>in</h1><p>where  字段名 in 值<br>where  字段名 in (值1,值2,值3….)</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> compny</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">in</span>(<span class="number">1</span>,<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="between">between</h3>
-
-<p>select  *  from  表名  where  字段名  between  左范围  and  右范围</p>
+<h1 id="between"><a href="#between" class="headerlink" title="between"></a>between</h1><p>select  *  from  表名  where  字段名  between  左范围  and  右范围</p>
 <p><code>左右都为闭</code></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> compny</span><br><span class="line"><span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">between</span> <span class="number">0</span> <span class="keyword">and</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="limit">limit规定返回数目</h3>
-
-<p>select  *  from  表名  limit  2</p>
+<h1 id="limit规定返回数目"><a href="#limit规定返回数目" class="headerlink" title="limit规定返回数目"></a>limit规定返回数目</h1><p>select  *  from  表名  limit  2</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span>  *  <span class="keyword">from</span>  compny  <span class="keyword">limit</span>  <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 <p>将只返回一条记录</p>
-<h3 id="orderby">orderby排序</h3>
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> compny</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span></span><br></pre></td></tr></table></figure>
+<h1 id="orderby排序"><a href="#orderby排序" class="headerlink" title="orderby排序"></a>orderby排序</h1><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> compny</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span></span><br></pre></td></tr></table></figure>
 
 <p>将按照id排序</p>
-<h3 id="like">like与通配符排序</h3>
-
-<table>
+<h1 id="like与通配符排序"><a href="#like与通配符排序" class="headerlink" title="like与通配符排序"></a>like与通配符排序</h1><table>
 <thead>
 <tr>
 <th>通配符</th>
@@ -562,7 +515,7 @@ update  表名  set  字段名  =  新值  where  字段名  =   旧值</h4>
 <td>不在字符列中的任何单一字符</td>
 </tr>
 </tbody></table>
-<p><strong><h4 id="bfz">%</h4></strong></p>
+<p><strong>## %</strong></p>
 <p>adderss有<strong>“新”</strong>开始的记录</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> compny</span><br><span class="line"><span class="keyword">WHERE</span> address <span class="keyword">LIKE</span> <span class="string">'新%'</span></span><br></pre></td></tr></table></figure>
 
@@ -570,12 +523,12 @@ update  表名  set  字段名  =  新值  where  字段名  =   旧值</h4>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> compny</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">id</span> <span class="keyword">LIKE</span> <span class="string">'%1%'</span></span><br></pre></td></tr></table></figure>
 
 
-<p><strong><h4 id="xhx">_</h4></strong></p>
+<p><strong>## _</strong></p>
 <p><strong>_</strong>  代表一个字符</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> compny</span><br><span class="line"><span class="keyword">WHERE</span> <span class="built_in">number</span> <span class="keyword">LIKE</span> <span class="string">'400_1_1'</span></span><br></pre></td></tr></table></figure>
 
 
-<p><strong><h4 id="charlist">sqlite3中[charlist]不能获取结果</h4></strong></p>
+<p><strong>## sqlite3中[charlist]不能获取结果</strong></p>
 
           
             <br>
@@ -658,8 +611,6 @@ update  表名  set  字段名  =  新值  where  字段名  =   旧值</h4>
     
       
         <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yzyyz.top/archives/c6080a03.html&title=Python爬虫（二） | 稚昂长&summary=SQL基础语法
-
-
 " target="_blank">
           
             <img src="https://cdn.yzyyz.top/xaoxuu/logo/128/qq.png">
@@ -669,8 +620,6 @@ update  表名  set  字段名  =  新值  where  字段名  =   旧值</h4>
     
       
         <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yzyyz.top/archives/c6080a03.html&title=Python爬虫（二） | 稚昂长&summary=SQL基础语法
-
-
 " target="_blank">
           
             <img src="https://cdn.yzyyz.top/xaoxuu/logo/128/qzone.png">
@@ -680,8 +629,6 @@ update  表名  set  字段名  =  新值  where  字段名  =   旧值</h4>
     
       
         <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://yzyyz.top/archives/c6080a03.html&title=Python爬虫（二） | 稚昂长&summary=SQL基础语法
-
-
 " target="_blank">
           
             <img src="https://cdn.yzyyz.top/xaoxuu/logo/128/weibo.png">
@@ -810,8 +757,7 @@ update  表名  set  字段名  =  新值  where  字段名  =   旧值</h4>
 
 
     <div class="content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#sql"><span class="toc-number">1.</span> <span class="toc-text">SQL基础语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#add"><span class="toc-number">2.</span> <span class="toc-text">insert插入（增）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#insert"><span class="toc-number">2.1.</span> <span class="toc-text">insert  into  表名  values(值1，值...)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#del"><span class="toc-number">3.</span> <span class="toc-text">delete删除（删）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#del"><span class="toc-number">3.1.</span> <span class="toc-text">delete  from  表名  where  字段名 &#x3D; 值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#update"><span class="toc-number">4.</span> <span class="toc-text">update更新（改）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#update"><span class="toc-number">4.1.</span> <span class="toc-text">
-update  表名  set  字段名  &#x3D;  新值  where  字段名  &#x3D;   旧值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find"><span class="toc-number">5.</span> <span class="toc-text">select查询（查）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#select1"><span class="toc-number">5.1.</span> <span class="toc-text">select  字段名  from  表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#select2"><span class="toc-number">5.2.</span> <span class="toc-text">select  *  from  表名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#select3"><span class="toc-number">5.3.</span> <span class="toc-text">distinct关键字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#where"><span class="toc-number">6.</span> <span class="toc-text">where条件语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#andor"><span class="toc-number">7.</span> <span class="toc-text">and  or运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#and"><span class="toc-number">7.1.</span> <span class="toc-text">select  *  from  表名  where  条件1  and  条件2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#or"><span class="toc-number">7.2.</span> <span class="toc-text">select  *  from  表名  where  条件1  and  条件2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#in"><span class="toc-number">8.</span> <span class="toc-text">in</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#between"><span class="toc-number">9.</span> <span class="toc-text">between</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#limit"><span class="toc-number">10.</span> <span class="toc-text">limit规定返回数目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#orderby"><span class="toc-number">11.</span> <span class="toc-text">orderby排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#like"><span class="toc-number">12.</span> <span class="toc-text">like与通配符排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bfz"><span class="toc-number">12.1.</span> <span class="toc-text">%</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#xhx"><span class="toc-number">12.2.</span> <span class="toc-text">_</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#charlist"><span class="toc-number">12.3.</span> <span class="toc-text">sqlite3中[charlist]不能获取结果</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#insert-into-表名-values-值1，值…"><span class="toc-number">1.</span> <span class="toc-text">insert  into  表名  values(值1，值…)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#delete-from-表名-where-字段名-值"><span class="toc-number">2.</span> <span class="toc-text">delete  from  表名  where  字段名 &#x3D; 值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-number">3.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#select-字段名-from-表名"><span class="toc-number">4.</span> <span class="toc-text">select  字段名  from  表名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#select-from-表名"><span class="toc-number">5.</span> <span class="toc-text">select  *  from  表名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#distinct关键字"><span class="toc-number">6.</span> <span class="toc-text">distinct关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#select-from-表名-where-条件1-and-条件2"><span class="toc-number">7.</span> <span class="toc-text">select  *  from  表名  where  条件1  and  条件2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#select-from-表名-where-条件1-and-条件2-1"><span class="toc-number">8.</span> <span class="toc-text">select  *  from  表名  where  条件1  and  条件2</span></a></li></ol>
     </div>
   </section>
 
@@ -1028,7 +974,7 @@ update  表名  set  字段名  &#x3D;  新值  where  字段名  &#x3D;   旧�
 
 
     <div class="content">
-      <a href="/tags/Hexo/" style="font-size: 18.29px; color: #7c7c7c">Hexo</a> <a href="/tags/Python/" style="font-size: 22.57px; color: #5f5f5f">Python</a> <a href="/tags/UP/" style="font-size: 15.43px; color: #8f8f8f">UP</a> <a href="/tags/%E5%85%AC%E5%91%8A/" style="font-size: 14px; color: #999">公告</a> <a href="/tags/%E5%9C%A8%E8%A5%BF%E5%86%9C/" style="font-size: 19.71px; color: #727272">在西农</a> <a href="/tags/%E5%B9%B2%E8%B4%A7/" style="font-size: 21.14px; color: #686868">干货</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 16.86px; color: #868686">开发</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 15.43px; color: #8f8f8f">机器人</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E8%B5%84%E6%BA%90/" style="font-size: 15.43px; color: #8f8f8f">资源</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 24px; color: #555">随笔</a>
+      <a href="/tags/Hexo/" style="font-size: 18px; color: #7e7e7e">Hexo</a> <a href="/tags/JavaScript/" style="font-size: 14px; color: #999">JavaScript</a> <a href="/tags/Python/" style="font-size: 22px; color: #636363">Python</a> <a href="/tags/UP/" style="font-size: 16px; color: #8b8b8b">UP</a> <a href="/tags/%E4%B8%8B%E5%8E%A8%E6%88%BF/" style="font-size: 14px; color: #999">下厨房</a> <a href="/tags/%E5%85%AC%E5%91%8A/" style="font-size: 14px; color: #999">公告</a> <a href="/tags/%E5%9C%A8%E8%A5%BF%E5%86%9C/" style="font-size: 20px; color: #707070">在西农</a> <a href="/tags/%E5%B9%B2%E8%B4%A7/" style="font-size: 22px; color: #636363">干货</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 18px; color: #7e7e7e">开发</a> <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/" style="font-size: 16px; color: #8b8b8b">机器人</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 14px; color: #999">游戏</a> <a href="/tags/%E8%B5%84%E6%BA%90/" style="font-size: 16px; color: #8b8b8b">资源</a> <a href="/tags/%E9%9A%8F%E7%AC%94/" style="font-size: 24px; color: #555">随笔</a>
     </div>
   </section>
 
@@ -1136,7 +1082,7 @@ setInterval("createtime()",250);
    
 <!---字数统计----->
 <i class="fas fa-chart-area"></i>
-<span class="post-count">字数统计：50.9k</span>
+<span class="post-count">字数统计：54.6k</span>
 <br>
 
 <div style="display:flex;justify-content: center;align-content: center;"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://beian.miit.gov.cn/" style="display: flex;align-content: center;align-items: flex-end;"><img class="icp-icon" src="https://cdn.jsdelivr.net/gh/yzyyz1387/blogimages/icp.png" alt="ICP"><span>陕ICP备2020016014号-1</span></a>  |  <a href="https://icp.gov.moe/?keyword=20222112" target="_blank" style rel="external nofollow noopener noreferrer">萌ICP备20222112号</a></div>

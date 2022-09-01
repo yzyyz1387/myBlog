@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yzyyz.top/friends/index.html</loc>
+    
+    <lastmod>2022-09-01T19:42:34.598Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yzyyz.top/archives/js_snake.html</loc>
     
     <lastmod>2022-09-01T19:24:56.467Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://yzyyz.top/archives/start_with_JS.html</loc>
     
     <lastmod>2022-08-30T12:27:26.336Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yzyyz.top/friends/index.html</loc>
-    
-    <lastmod>2022-08-28T13:00:29.032Z</lastmod>
     
   </url>
   

@@ -130,7 +130,10 @@ font-family: 'jb';
 }
 pre{
     line-height: 1.6;}
-</style></head>
+</style>
+
+<!---贪吃蛇--->
+<script tpye="text/javascript" src="js/add_snake.js"></script></head>
 <body>
 <!--动态线条背景-->
 <script type="text/javascript" color="56,152,252" opacity="0.9" zindex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
@@ -481,12 +484,12 @@ pre{
 setInterval("createtime()",250);
 </script>
 
-<!-- 恋爱时间-----
+
 <span id="loveDate">载入天数...</span><span id="timesl">载入时分秒...</span>
     <script>
       var nowl = new Date();
       function createtimel() {
-        var grtl= new Date("09/07/2021 22:00:00");
+        var grtl= new Date("03/05/2022 22:00:00");
         nowl.setTime(nowl.getTime()+250);
         daysl = (nowl - grtl ) / 1000 / 60 / 60 / 24;
         dnuml = Math.floor(daysl);
@@ -502,14 +505,14 @@ setInterval("createtime()",250);
         document.getElementById("timesl").innerHTML = hnuml + " 小时 " + mnuml + " 分 " + snuml + " 秒";
       }
       setInterval("createtimel()",250);
-    </script> -->
+    </script> 
    
 <!---字数统计----->
 <i class="fas fa-chart-area"></i>
-<span class="post-count">字数统计：54.6k</span>
+<span class="post-count">字数统计：55.2k</span>
 <br>
 
-<div style="display:flex;justify-content: center;align-content: center;"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://beian.miit.gov.cn/" style="display: flex;align-content: center;align-items: flex-end;"><img class="icp-icon" src="https://cdn.jsdelivr.net/gh/yzyyz1387/blogimages/icp.png" alt="ICP"><span>陕ICP备2020016014号-1</span></a>  |  <a href="https://icp.gov.moe/?keyword=20222112" target="_blank" style rel="external nofollow noopener noreferrer">萌ICP备20222112号</a></div>
+<div style="display:flex;justify-content: center;align-content: center;"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://beian.miit.gov.cn/" style="display: flex;align-content: center;align-items: flex-end;"><img class="icp-icon" src="https://raw.fastgit.org/yzyyz1387/blogimages/master/icp.png" alt="ICP"><span>陕ICP备2020016014号-1</span></a>  |  <a href="https://icp.gov.moe/?keyword=20222112" target="_blank" style rel="external nofollow noopener noreferrer">萌ICP备20222112号</a></div>
 
     </div>
   

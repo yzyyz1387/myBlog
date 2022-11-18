@@ -1154,8 +1154,8 @@ setInterval("createtime()",250);
   var guest_info = 'nick,mail,link'.split(',').filter(function(item){
     return GUEST_INFO.indexOf(item) > -1
   });
-  var notify = 'true' == true;
-  var verify = 'true' == true;
+  var notify = '' == true;
+  var verify = '' == true;
   var valine = new Valine();
   valine.init({
     el: '#valine_container',
@@ -1168,7 +1168,7 @@ setInterval("createtime()",250);
     placeholder: "(支持Markdown哦)快来评论吧~",
     pageSize:'10',
     avatar:'identicon',
-    lang:'zh-cn',
+    lang:'zh-CN',
     highlight:'true'
   })
   </script>

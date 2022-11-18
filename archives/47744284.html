@@ -131,7 +131,7 @@ font-family: 'jb';
 pre{
     line-height: 1.6;}
 </style>
-<link rel="stylesheet" type="text/css" href="/assets/css/DPlayer.min.css"><script src="/assets/js/DPlayer.min.js"></script></head>
+<script src="/assets/js/DPlayer.min.js"></script><link rel="stylesheet" type="text/css" href="/assets/css/DPlayer.min.css"></head>
 <body>
 
 <!---贪吃蛇&说说--->
@@ -1099,7 +1099,7 @@ setInterval("createtime()",250);
   
   <script>
   var GUEST_INFO = ['nick','mail','link'];
-  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  var guest_info = ''.split(',').filter(function(item){
     return GUEST_INFO.indexOf(item) > -1
   });
   var notify = '' == true;
@@ -1107,17 +1107,17 @@ setInterval("createtime()",250);
   var valine = new Valine();
   valine.init({
     el: '#valine_container',
-    notify: notify,
-    verify: verify,
-    guest_info: guest_info,
     
     appId: "Xvfbefuvq7nt19O3fViImxNS-gzGzoHsz",
     appKey: "U8MDnvdjzCLwHXMugvO8PcUz",
-    placeholder: "(支持Markdown哦)快来评论吧!",
+    placeholder: "( 支持Markdown ) 快来评论吧!",
     pageSize:'10',
     avatar:'identicon',
     lang:'zh-CN',
-    highlight:'true'
+    highlight:true,
+    requiredFields: ['nick','mail'],
+    enableQQ: true,
+    recordIP: true
   })
   </script>
 

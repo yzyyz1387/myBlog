@@ -449,12 +449,12 @@ pre{
 
 <p>因为在复习，这只是被临时分了心（hhhhh）所以就瞎捣鼓了一下：<br>这是由一加默认铃声oneplus_tune和dance monkey两首曲目混剪而成</p>
 
-        <div id="aplayer-bBTWLVGY" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-LXyvWPLb" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-bBTWLVGY"),
+            element: document.getElementById("aplayer-LXyvWPLb"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -1118,7 +1118,7 @@ setInterval("createtime()",250);
   
   <script>
   var GUEST_INFO = ['nick','mail','link'];
-  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  var guest_info = ''.split(',').filter(function(item){
     return GUEST_INFO.indexOf(item) > -1
   });
   var notify = '' == true;
@@ -1126,17 +1126,17 @@ setInterval("createtime()",250);
   var valine = new Valine();
   valine.init({
     el: '#valine_container',
-    notify: notify,
-    verify: verify,
-    guest_info: guest_info,
     
     appId: "Xvfbefuvq7nt19O3fViImxNS-gzGzoHsz",
     appKey: "U8MDnvdjzCLwHXMugvO8PcUz",
-    placeholder: "(支持Markdown哦)快来评论吧!",
+    placeholder: "( 支持Markdown ) 快来评论吧!",
     pageSize:'10',
     avatar:'identicon',
     lang:'zh-CN',
-    highlight:'true'
+    highlight:true,
+    requiredFields: ['nick','mail'],
+    enableQQ: true,
+    recordIP: true
   })
   </script>
 

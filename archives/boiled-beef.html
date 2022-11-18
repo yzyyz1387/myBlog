@@ -416,10 +416,10 @@ pre{
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-08-20T04:34:50+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-11-05T16:06:46+08:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2022年8月20日</p>
+    <p>本页文档最后更新于：2022年11月5日</p>
   </a>
 </div>
 
@@ -1188,7 +1188,7 @@ setInterval("createtime()",250);
   
   <script>
   var GUEST_INFO = ['nick','mail','link'];
-  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+  var guest_info = ''.split(',').filter(function(item){
     return GUEST_INFO.indexOf(item) > -1
   });
   var notify = '' == true;
@@ -1196,17 +1196,17 @@ setInterval("createtime()",250);
   var valine = new Valine();
   valine.init({
     el: '#valine_container',
-    notify: notify,
-    verify: verify,
-    guest_info: guest_info,
     
     appId: "Xvfbefuvq7nt19O3fViImxNS-gzGzoHsz",
     appKey: "U8MDnvdjzCLwHXMugvO8PcUz",
-    placeholder: "(支持Markdown哦)快来评论吧!",
+    placeholder: "( 支持Markdown ) 快来评论吧!",
     pageSize:'10',
     avatar:'identicon',
     lang:'zh-CN',
-    highlight:'true'
+    highlight:true,
+    requiredFields: ['nick','mail'],
+    enableQQ: true,
+    recordIP: true
   })
   </script>
 

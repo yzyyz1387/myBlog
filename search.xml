@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>博客1000天</title>
+      <link href="/archives/blog1k.html"/>
+      <url>/archives/blog1k.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><a id="more"></a><p>还没写，没时间</p><div style="position: relative; padding: 30% 45%;"><iframe src="//player.bilibili.com/player.html?aid=506008705&bvid=BV1bu411Z7PQ&cid=426156801&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"> </iframe></div>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>node版本管理工具</title>
       <link href="/archives/a18c7649.html"/>
       <url>/archives/a18c7649.html</url>

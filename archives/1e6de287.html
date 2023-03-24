@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
 
-  <title>VM安装CentOS 踩坑记|VMware Workstation 与 Device/Credential Guard 不兼容 | 稚昂长</title>
+  <title>FreeWater的历史 | 稚昂长</title>
   
   <meta name="keywords" content="幼稚园园长,博客,blog,园长博客,稚昂长,幼稚园园长博客">
   
@@ -355,8 +355,8 @@ pre{
         
   
     <h1 class="title">
-      <a href="/archives/264ae2ef.html">
-        VM安装CentOS 踩坑记|VMware Workstation 与 Device/Credential Guard 不兼容
+      <a href="/archives/1e6de287.html">
+        FreeWater的历史
       </a>
     </h1>
   
@@ -392,7 +392,7 @@ pre{
             <div class="new-meta-item date">
   <a class="notlink">
     <i class="fas fa-edit" aria-hidden="true"></i>
-    <p>消息发布于：2020年4月14日</p>
+    <p>消息发布于：2023年3月20日</p>
   </a>
 </div>
 
@@ -416,10 +416,10 @@ pre{
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-08-17T21:25:08+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2023-03-24T10:20:34+08:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2022年8月17日</p>
+    <p>本页文档最后更新于：2023年3月24日</p>
   </a>
 </div>
 
@@ -436,61 +436,39 @@ pre{
       <section class="article typo">
         <div class="article-entry" itemprop="articleBody">
           
-          <p style="text-align:center;">
-<a href="https://cdn.yzyyz.top/img/centos.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="cent"><img src="https://cdn.yzyyz.top/img/centos.jpg"></a></p>
-
-<p>今天需要用到CentOS,就准备在虚拟机上安装从阿里云下载的镜像，记录一下踩坑过程</p>
+          <p>同步更新在博客：<a href="https://water.yzyyz.top/history.html" target="_blank" rel="external nofollow noopener noreferrer">https://water.yzyyz.top/history.html</a></p>
+<h3 id="开端"><a href="#开端" class="headerlink" title="开端"></a>开端</h3><p>&emsp;&emsp;大概是在2021年5月初，好友飞鱼刷视频看到了别人开发的免扫码接水，打趣说我们也弄一个。当时没在意，后来的某一天（应该是5月19日）闲来无事，便在宿舍跟饮水机之间来回跑，抓包尝试。</p>
 <a id="more"></a>
 
-<p><br><br></p>
-<h1 id="出现问题"><a href="#出现问题" class="headerlink" title="出现问题"></a>出现问题</h1><p>安装的时候出现了以下问题：</p>
-<blockquote>
-<p>VmWare安装centos7提示：VMware Workstation 与 Device/Credential Guard 不兼容。在禁用 Device/Credenti</p>
-</blockquote>
+<h3 id="发布-1-0-版本"><a href="#发布-1-0-版本" class="headerlink" title="发布 1.0 版本"></a>发布 1.0 版本</h3><p>&emsp;&emsp;经过一番折腾，终于在5月20日发布了 FreeWater App 的第一个版本，软件的主题色是我一直喜欢的 <span style="color:#3898fc">#3898FC</span> ，仅支持北区四号楼1楼东侧饮水机的使用，自己用 ps 做了软件的图标,技术栈嘛，使用的简易语言。当时的版本号是1.0，后来的版本号都是以这个为基础进行递增的。<br>&emsp;&emsp;最终应该有…好吧我不知道有多少用户，一百多个用户吧可能，因为现在群里还剩130多人</p>
 <p style="text-align:center;">
-<a href="https://cdn.yzyyz.top/img/vmsb.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="cent"><img src="https://cdn.yzyyz.top/img/vmsb.png"></a></p>
+<a href="https://cdn.yzyyz.top/img/freewawwter/v1.0.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="freewater"><img src="https://cdn.yzyyz.top/img/freewawwter/v1.0.jpg"></a></p>
 
-<hr>
-<br>
-<br>
-# 简单解决
-解决方法如下：
-`Win+R` 打开运行 输入`gpedit.msc`
-
+<p>&emsp;&emsp;此时通过抓包，抓取我自己账户的 token 来进行打水，因为考虑到会抓包的人和能抓包的手机少之又少。简单说就是：所有用户使用的都是我的钱钱，我是不是很有钱呢？（不是）。这离不开各位用户的捐赠，在这里再次表达感谢,感谢如下用户：</p>
 <p style="text-align:center;">
-<a href="https://cdn.yzyyz.top/img/vmgm.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="cent"><img src="https://cdn.yzyyz.top/img/vmgm.png"></a></p><br>
+<a href="https://cdn.yzyyz.top/img/freewawwter/sponsor.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="freewater"><img src="https://cdn.yzyyz.top/img/freewawwter/sponsor.png"></a></p>
 
-
-<p>依次找到<code>计算机配置</code>→<code>管理模板</code>→<code>系统</code>→<code>Device Guard</code>,双击<code>打开基于虚拟化的安全</code></p>
+<p>&emsp;&emsp;没记错账的话，收到各位大爹捐赠款 <span class="line_block">人民币 肆佰陆拾叁元（￥463）</span>其中的大部分抵扣了前期接水费用，还购置了一台服务器。</p>
+<h3 id="发布-2-0-系列"><a href="#发布-2-0-系列" class="headerlink" title="发布 2.0 系列"></a>发布 2.0 系列</h3><p>&emsp;&emsp;四天后，经过我辗转于宿舍和1层另一边的饮水机，又通过QQ联系其他楼和南校区的同学（学长？学姐？忘记了），折腾出了2.0版本，支持了两个校区多楼层机器使用，在软件启动时需要选择，也给软件增加了侧滑页面，</p>
 <p style="text-align:center;">
-<a href="https://cdn.yzyyz.top/img/vmdg.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="cent"><img src="https://cdn.yzyyz.top/img/vmdg.png"></a></p><br>
+<a href="https://cdn.yzyyz.top/img/freewawwter/v2.0.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="freewater"><img src="https://cdn.yzyyz.top/img/freewawwter/v2.0.jpg"></a></p>
 
-
-<p>选择<code>禁用</code>，再点击<code>应用</code>→<code>确定</code></p>
+<p>&emsp;&emsp;后续一直在维护，在博客发了 <a href="https://yzyyz.top/archives/eae69302.html">一篇文章</a>介绍这个项目，不断地「修复了一些 bug，增加了一些功能」，期间离不开用户向我拍照提供饮水机机器码，因为在提交请求时，一个必须的参数是机器码，但是机器码我只能通过小程序扫码再抓包获得<br>&emsp;&emsp;再后来经飞鱼发现了该平台的 WEB 端，通过 WEB 端，我实现了登录功能, 并为软件拟定了<a href="/yhxy/yhxy.html" target="_blank">用户协议</a>，用户可使用自己的账户登录。此时，我还没意识到这是给平台的一个 bug：<br>&emsp;&emsp;我们平时使用的是小程序端，token需要抓包获得，且必须扫一次支付一次，但通过 WEB 端，我又可以拿到一个 token, 通过这个 token 同样可以发送接水请求，但即使用户在小程序端开了免密支付，在使用 WEB 端的 token 请求解锁时，也无法完成自动支付，<br>&emsp;&emsp;虽然如此，用户还是可以一直不支付上一单，继续解锁。<br><br>&emsp;&emsp;在这样的情况下，我也考虑到该平台的利益问题，所以时不时会让软件进入维护状态，无法使用 FreeWater 时，用户只能使用小程序，那么他就必须支付以前的订单。<br><br>&emsp;&emsp;所以出现了用户支付欠费订单「断手」的状况：</p>
 <p style="text-align:center;">
-<a href="https://cdn.yzyyz.top/img/vmgd.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="cent"><img src="https://cdn.yzyyz.top/img/vmgd.png"></a></p><br>
+<a href="https://cdn.yzyyz.top/img/freewawwter/0.01.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="freewater"><img src="https://cdn.yzyyz.top/img/freewawwter/0.01.png"></a></p>
 
-
-<p><code>Win+R</code> 打开运行 输入<code>services.msc</code></p>
+<p>&emsp;&emsp;这样持续了一段时间，有用户接到了电话，被询问「如何做到欠着费还能继续接水」，我后来想想可能是某程序员不知道 bug 在哪，尝试利用社会工程学来找到漏洞（笑）<img src="https://api.isoyu.com/uploads/ARU/GIF_S/0530.gif" class="img_exps" alt>。<br>&emsp;&emsp;不久，我开玩笑的给自己发了一封警告邮件：</p>
 <p style="text-align:center;">
-<a href="https://cdn.yzyyz.top/img/vmsm.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="cent"><img src="https://cdn.yzyyz.top/img/vmsm.png"></a></p><br>
+<a href="https://cdn.yzyyz.top/img/freewawwter/mail.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="freewater"><img src="https://cdn.yzyyz.top/img/freewawwter/mail.png"></a></p>
 
-<p>找到并双击<code>HV主机服务</code></p>
-<p style="text-align:center;">
-<a href="https://cdn.yzyyz.top/img/vmsm1.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="cent"><img src="https://cdn.yzyyz.top/img/vmsm1.png"></a></p><br>
+<h3 id="打卡功能"><a href="#打卡功能" class="headerlink" title="打卡功能"></a>打卡功能</h3><p>&emsp;&emsp;2.1 beta 2 版本的更新中，我又将针对学校健康打卡的功能加入其中，通过我服务器的定时任务，便可以实现每天自动打卡。该功能为捐赠用户免费提供，普通用户捐赠后可以使用。</p>
+<a href="https://cdn.yzyyz.top/img/freewawwter/v2.2.8.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="freewater"><img src="https://cdn.yzyyz.top/img/freewawwter/v2.2.8.jpg"></a><p></p>
 
-<p>设置为禁用</p>
-<p style="text-align:center;">
-<a href="https://cdn.yzyyz.top/img/vmsm2.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="cent"><img src="https://cdn.yzyyz.top/img/vmsm2.png"></a></p><br>
+<p>&emsp;&emsp;后来由于一些原因，我将其关停了</p>
+<a href="https://cdn.yzyyz.top/img/freewawwter/stop_dk.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="freewater"><img src="https://cdn.yzyyz.top/img/freewawwter/stop_dk.jpg"></a><p></p>
 
-<p>按照图示取消勾选<code>Hyper-v</code></p>
-<p style="text-align:center;">
-<a href="https://cdn.yzyyz.top/img/vmkzmb.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="cent"><img src="https://cdn.yzyyz.top/img/vmkzmb.png"></a></p><br>
-
-<p>重启电脑，大功告成</p>
-<p style="text-align:center;">
-<a href="https://cdn.yzyyz.top/img/vmubt.png" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="cent"><img src="https://cdn.yzyyz.top/img/vmubt.png"></a></p><br>
-
+<h3 id="免费使用3天"><a href="#免费使用3天" class="headerlink" title="免费使用3天"></a>免费使用3天</h3><p>&emsp;&emsp;2021年11月5日，我在群里说：「@全体成员 EDG夺冠 免费接水三天」，在11月13日，免费接水功能从网页端上线，用户使用我的账户接水，为期三天，这一功能由 π 完成。</p>
+<h3 id="项目停止"><a href="#项目停止" class="headerlink" title="项目停止"></a>项目停止</h3><p>&emsp;&emsp;大概是11月中旬吧，我将软件设置成了停用状态，应该是前面提到的 bug 被修复了，我又不想再回到“花我的钱”那个时代，再后来又有很多事缠身，就没有继续维护了。<br>&emsp;&emsp;FreeWater就暂时成为了一段历史，一些人一些事都成为了历史，但是我一段难忘的青春。<br><br>&emsp;&emsp;这个点子是飞鱼提出来的，我在之后的某个忙里偷闲的下午开始了这个项目，并逐步维护、完善她，后来我的项目停了，飞鱼又重启了相同的项目，<br>&emsp;&emsp;我在我群里说「飞鱼剽窃我的创意」，应该还加了当时流行的流汗黄豆，当然是开玩笑的，但是文字的力量大家懂的，当时给他说不高兴了<img src="https://api.isoyu.com/uploads/ARU/GIF_S/3050.gif" class="img_exps" alt>，<br>&emsp;&emsp;我还在想我不就开玩笑吗怎么这么凶，就回怼了几句，后来再看我发的那句话，我自己也看不出那是在开玩笑。<br>&emsp;&emsp;过了一段时间我去找他，还给他买了喝的，我知道他不在意，我也没提这件事，只是去找他给他带了喝的。<br><br>&emsp;&emsp;那段时间我总是钻到电脑前面调试软件，完善功能，可能是心烦意乱？我不知道，我总认为用户的一些发言是在挑我的刺，仿佛弄疼我了，我经常火气很大，也对个别用户发了火，再次向那个小胡萝卜道歉：Sorry。如果没记错，他/她的昵称是一个字符小人拿着🥕。<br><br>&emsp;&emsp;如今，距离2021年5月20日都快两年了，不经意间打开电脑上的一张图片，想起了那段时光。我真的要感谢飞鱼、π，特别感谢我的用户们，那是我第一次去维护一个项目，以一个农学人的身份，干着我想干的事，用户是我最大的动力，<br>&emsp;&emsp;我总是以一个小白用户的视角去想问题，怎么把软件尽量做好，即使她的功能很简单。2019年夏天，我填的所有第一志愿都是计算机，但抱着另一种想要985、211牌子的心态，勾选了接受调剂，以不高的分数靠近了西农，但调剂到了农学。<br>&emsp;&emsp;但计算机相关的东西一直算是我的兴趣吧，可能当兴趣变为工作也没那么好（嘴硬中）。如今4年快过去了，即使这个专业本科出去真的很一般，我仍认为干农业是需要情怀的，闻道有先后，术业有专攻，如是而已。<br>&emsp;&emsp;更多的，我希望读者要有法律意识、红线意识，不要惹上不必要的麻烦，不要侥幸，或者不小心地违反了法律。<br>&emsp;&emsp;愿读者前程似锦，不在意过去，不必留恋，未来可期。<br><span style="color:#000;font-weight: bold">后会有期</span></p>
 
           
             <br>
@@ -526,7 +504,7 @@ pre{
           
         
           
-            <p>本文永久链接是：<a href="https://yzyyz.top/archives/264ae2ef.html">https://yzyyz.top/archives/264ae2ef.html</a></p>
+            <p>本文永久链接是：<a href="https://yzyyz.top/archives/1e6de287.html">https://yzyyz.top/archives/1e6de287.html</a></p>
           
         
       </blockquote>
@@ -561,7 +539,7 @@ pre{
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9A%8F%E7%AC%94/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>随笔</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%B9%B2%E8%B4%A7/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>干货</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%9A%8F%E7%AC%94/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>随笔</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%BC%80%E5%8F%91/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>开发</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%9C%A8%E8%A5%BF%E5%86%9C/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>在西农</p></a></div>
 
 
         
@@ -572,10 +550,8 @@ pre{
   <div class="-mob-share-list share-body">
     
       
-        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yzyyz.top/archives/264ae2ef.html&title=VM安装CentOS 踩坑记|VMware Workstation 与 Device/Credential Guard 不兼容 | 稚昂长&summary=
-
-
-今天需要用到CentOS,就准备在虚拟机上安装从阿里云下载的镜像，记录一下踩坑过程" target="_blank">
+        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yzyyz.top/archives/1e6de287.html&title=FreeWater的历史 | 稚昂长&summary=同步更新在博客：https://water.yzyyz.top/history.html
+开端&emsp;&emsp;大概是在2021年5月初，好友飞鱼刷视频看到了别人开发的免扫码接水，打趣说我们也弄一个。当时没在意，后来的某一天（应该是5月19日）闲来无事，便在宿舍跟饮水机之间来回跑，抓包尝试。" target="_blank">
           
             <img src="https://cdn.yzyyz.top/xaoxuu/logo/128/qq.png">
           
@@ -583,10 +559,8 @@ pre{
       
     
       
-        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yzyyz.top/archives/264ae2ef.html&title=VM安装CentOS 踩坑记|VMware Workstation 与 Device/Credential Guard 不兼容 | 稚昂长&summary=
-
-
-今天需要用到CentOS,就准备在虚拟机上安装从阿里云下载的镜像，记录一下踩坑过程" target="_blank">
+        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yzyyz.top/archives/1e6de287.html&title=FreeWater的历史 | 稚昂长&summary=同步更新在博客：https://water.yzyyz.top/history.html
+开端&emsp;&emsp;大概是在2021年5月初，好友飞鱼刷视频看到了别人开发的免扫码接水，打趣说我们也弄一个。当时没在意，后来的某一天（应该是5月19日）闲来无事，便在宿舍跟饮水机之间来回跑，抓包尝试。" target="_blank">
           
             <img src="https://cdn.yzyyz.top/xaoxuu/logo/128/qzone.png">
           
@@ -594,10 +568,8 @@ pre{
       
     
       
-        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://yzyyz.top/archives/264ae2ef.html&title=VM安装CentOS 踩坑记|VMware Workstation 与 Device/Credential Guard 不兼容 | 稚昂长&summary=
-
-
-今天需要用到CentOS,就准备在虚拟机上安装从阿里云下载的镜像，记录一下踩坑过程" target="_blank">
+        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer" href="http://service.weibo.com/share/share.php?url=https://yzyyz.top/archives/1e6de287.html&title=FreeWater的历史 | 稚昂长&summary=同步更新在博客：https://water.yzyyz.top/history.html
+开端&emsp;&emsp;大概是在2021年5月初，好友飞鱼刷视频看到了别人开发的免扫码接水，打趣说我们也弄一个。当时没在意，后来的某一天（应该是5月19日）闲来无事，便在宿舍跟饮水机之间来回跑，抓包尝试。" target="_blank">
           
             <img src="https://cdn.yzyyz.top/xaoxuu/logo/128/weibo.png">
           
@@ -619,40 +591,21 @@ pre{
         
             <div class="prev-next">
                 
-                    <section class="prev">
-                        <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
-                            <h4>
-                                <a href="/archives/b0c3ca81.html" rel="prev" title="大多数人不知道的Python骚操作">
-                                  
-                                      大多数人不知道的Python骚操作
-                                  
-                                </a>
-                            </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <a class="tag" href="/tags/Python/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> Python</a> <a class="tag" href="/tags/%E5%B9%B2%E8%B4%A7/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 干货</a>
-                                </h6>
-                            
-                        </span>
-                    </section>
-                
                 
                     <section class="next">
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/archives/99d3e1c2.html" rel="prev" title="RSS源推荐|使用RSS|高效阅读">
+                                <a href="/archives/7915a422.html" rel="prev" title="又一次出发">
                                     
-                                        RSS源推荐|使用RSS|高效阅读
+                                        又一次出发
                                     
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/%E5%B9%B2%E8%B4%A7/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 干货</a>
+                                    <a class="tag" href="/tags/%E9%9A%8F%E7%AC%94/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 随笔</a> <a class="tag" href="/tags/%E5%9C%A8%E8%A5%BF%E5%86%9C/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 在西农</a>
                                 </h6>
                             
                         </span>
@@ -697,7 +650,7 @@ pre{
 
   <script>
     window.subData = {
-      title: 'VM安装CentOS 踩坑记|VMware Workstation 与 Device/Credential Guard 不兼容',
+      title: 'FreeWater的历史',
       tools: true
     }
   </script>
@@ -725,7 +678,7 @@ pre{
 
 
     <div class="content">
-      
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#开端"><span class="toc-number">1.</span> <span class="toc-text">开端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布-1-0-版本"><span class="toc-number">2.</span> <span class="toc-text">发布 1.0 版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布-2-0-系列"><span class="toc-number">3.</span> <span class="toc-text">发布 2.0 系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#打卡功能"><span class="toc-number">4.</span> <span class="toc-text">打卡功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#免费使用3天"><span class="toc-number">5.</span> <span class="toc-text">免费使用3天</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目停止"><span class="toc-number">6.</span> <span class="toc-text">项目停止</span></a></li></ol>
     </div>
   </section>
 

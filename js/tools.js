@@ -110,15 +110,19 @@ window.onload = function () {
     if (window.location.pathname.startsWith('/archives/')) {
         creatBtn()
         let RM = document.getElementById("RM")
+        let localMode = window.localStorage.getItem("mode")
         if (RM) {
             //写入本地储存 ，mode = 1
-            let localMode = window.localStorage.getItem("mode")
             if (localMode === null) {
                 window.localStorage.setItem("mode", "1")
                 changeCss()
             } else if (localMode === "1") {
                 changeCss()
 
+            }
+        } else {
+            if (localMode === "1") {
+                changeCss()
             }
         }
 

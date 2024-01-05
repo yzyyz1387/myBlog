@@ -21,7 +21,7 @@ window.onload = function () {
         let newDiv = document.createElement("div")
         newDiv.className = "snake"
         newDiv.style.marginTop = "110px"
-        newDiv.innerHTML = "<a href='https://github.com/yzyyz1387/' target='_blank'><img src=\"https://cdn.staticaly.com/gh/yzyyz1387/yzyyz1387/main/dist/github-snake.svg\" alt=\"\" style=\"display: block; margin: 0 auto;background: #fff;\"></a>"
+        newDiv.innerHTML = "<a href='https://github.com/yzyyz1387/' target='_blank'><img src=\"https://cdn.statically.io/gh/yzyyz1387/yzyyz1387/main/dist/github-snake.svg\" alt=\"\" style=\"display: block; margin: 0 auto;background: #fff;\"></a>"
         insertAfter(newDiv, div)
 
 

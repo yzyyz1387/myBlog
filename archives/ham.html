@@ -131,6 +131,8 @@ font-family: 'jb';
 pre{
     line-height: 1.6;}
 </style>
+<link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
 </head>
 <body>
 
@@ -392,7 +394,7 @@ pre{
             <div class="new-meta-item date">
   <a class="notlink">
     <i class="fas fa-edit" aria-hidden="true"></i>
-    <p>消息发布于：2023年6月18日</p>
+    <p>消息发布于：2024年4月8日</p>
   </a>
 </div>
 
@@ -416,10 +418,10 @@ pre{
           
         
           
-            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2023-06-18T06:10:16+08:00">
+            <div class="new-meta-item date" itemprop="dateUpdated" datetime="2024-04-19T14:29:58+08:00">
   <a class="notlink">
     <i class="fas fa-save" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2023年6月18日</p>
+    <p>本页文档最后更新于：2024年4月19日</p>
   </a>
 </div>
 
@@ -440,9 +442,146 @@ pre{
 
 <a id="more"></a>
 
-<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p><strong>&emsp;</strong>「业余无线电」前两个字听起来有点业余，后三个字听起来有点专业，但我的目的是写一点浅显的东西，就是用大白话说说这件事，难免会有表述不当或者专业性错误，若有错误，请在页面下方评论区底部指出，我会尽快核实并修改。</p>
-<h2 id="什么是业余无线电"><a href="#什么是业余无线电" class="headerlink" title="什么是业余无线电"></a>什么是业余无线电</h2><p>&emsp;&emsp;</p>
-<h2 id="什么不是业余无线电"><a href="#什么不是业余无线电" class="headerlink" title="什么不是业余无线电"></a>什么不是业余无线电</h2><h2 id="初探业余无线电"><a href="#初探业余无线电" class="headerlink" title="初探业余无线电"></a>初探业余无线电</h2>
+<p>开坑于<code>2023-06-18 05:48:22</code>，开坑时觉得这其中要讲的太多了，准备写个本子录个视频，但是一直搁置了，这次itpanda群里老哥想玩，想起来了，补一下</p>
+<p><strong>不耐烦长篇大论的读者可以跳过术语表，从<a href="#写在前面">写在前面</a>开始阅读</strong></p>
+<h2 id="本文术语表"><a href="#本文术语表" class="headerlink" title="本文术语表"></a>本文术语表</h2><h3 id="电台"><a href="#电台" class="headerlink" title="电台"></a>电台</h3><p>在本文中指业余无线电台</p>
+<h3 id="手台"><a href="#手台" class="headerlink" title="手台"></a>手台</h3><p>手持电台，大众常识中对讲机形状的电台</p>
+<h3 id="车台"><a href="#车台" class="headerlink" title="车台"></a>车台</h3><p>车载电台（如本文封面图）</p>
+<h3 id="PTT"><a href="#PTT" class="headerlink" title="PTT"></a>PTT</h3><p>PUSH TO  TALK ,电台上的发射 按键，按下说话</p>
+<h3 id="发射"><a href="#发射" class="headerlink" title="发射"></a>发射</h3><p>指按下PTT发射出信号</p>
+<h3 id="通联"><a href="#通联" class="headerlink" title="通联"></a>通联</h3><p>电台间进行通信（由于在业余无线电活动中，主体一般是电台而不是人，故此处称电台间的通信，直白说也就是两人进行通信）</p>
+<h3 id="频段"><a href="#频段" class="headerlink" title="频段"></a>频段</h3><p>无线电波指在自由空间传播，频率范围为0-300 GHz 的电磁波，将无线电波分为不同的段，各个段有它的用处，在业余无线电中，爱好者们使用业余段</p>
+<h3 id="业余段"><a href="#业余段" class="headerlink" title="业余段"></a>业余段</h3><p>供业余无线电通信的频段</p>
+<h3 id="U段"><a href="#U段" class="headerlink" title="U段"></a>U段</h3><p>300MHz — 3000MHz(3GHz) ，超高频(UHF)，在业余活动中通常指<strong>U段中的业余段范围</strong>：<strong>430.00MHz-440.00MHz</strong> （U段中还有其他业余频段，最常用为430-440）（因入门者的需要，最开始接触的是U、V段，故在此解释此术语）</p>
+<h3 id="V段"><a href="#V段" class="headerlink" title="V段"></a>V段</h3><p>30MHz — 300MHz，甚高频(VHF)，业余活动中通常指<strong>V段中的业余段范围</strong>：<strong>144MHz-148MHz</strong> （因入门者的需要，最开始接触的是U、V段，故在此解释此术语）</p>
+<h3 id="U-V区别？"><a href="#U-V区别？" class="headerlink" title="U/V区别？"></a>U/V区别？</h3><p>VHF属于低频段，信号接收比较差，在一定距离内有障碍物的情况下无法保证信号的稳定，UHF频段接收信号相对来说比较稳定。（注意。这里不是说U好V不好），在UV通信中，不考障碍物虑遮挡的前提下，较高的高通常会更容易通联</p>
+<h3 id="直频"><a href="#直频" class="headerlink" title="直频"></a>直频</h3><p>指两部电台直接通话（如A使用手台在某一频率直接发射，和B进行通联）</p>
+<h3 id="中继-中继台"><a href="#中继-中继台" class="headerlink" title="中继/中继台"></a>中继/中继台</h3><p>一种特殊的电台，在业余无线电活动中，通常固定在某高处，如城市的高楼、城市旁边的高山、高塔上。受环境（高度，遮挡，距离）的影响，两部电台无法直频通联，通过中继进行信号转发，以实现较远距离或较差环境的通联</p>
+<h3 id="HAM-火腿"><a href="#HAM-火腿" class="headerlink" title="HAM/火腿"></a>HAM/火腿</h3><p>业余无线电爱好者</p>
+<h3 id="火腿节-55节-五五节"><a href="#火腿节-55节-五五节" class="headerlink" title="火腿节/55节/五五节"></a>火腿节/55节/五五节</h3><p>5·5中国业余无线电节，在5月5日</p>
+<h3 id="呼号"><a href="#呼号" class="headerlink" title="呼号"></a>呼号</h3><p>或称电台识别码，是识别电台的号码</p>
+<p>无线电台呼号（识别码）是指能够区分或者识别无线电台身份的编码的统称。国际电信联盟在《无线电规则》中规定一切无线电台的发射应能通过电台识别信号或其他方式加以识别，并禁止一切使用假识别信号或易引起误解的标识信号发送。目前常用的电台识别码包括电台呼号、水上移动业务标识码、航空无线电业务标识码等。 来源：<a href="https://www.jiangmen.gov.cn/gzhd/zhzw/content/post_2541899.html" target="_blank" rel="external nofollow noopener noreferrer">无线电台呼号（识别码）是什么？</a></p>
+<h3 id="网格"><a href="#网格" class="headerlink" title="网格"></a>网格</h3><p>指梅登黑德网格系统，是以经纬度作为基准线，将地球分为若干网格，以实现精确报告自己位置的系统。</p>
+<p>如北京: OM89  西安: OM44  西北农林科技大学：OM44AG</p>
+<p><a href="https://zh.wikipedia.org/wiki/梅登黑德定位系统" target="_blank" rel="external nofollow noopener noreferrer">梅登黑德定位系统 - 维基百科</a></p>
+<h3 id="QSL卡片"><a href="#QSL卡片" class="headerlink" title="QSL卡片"></a>QSL卡片</h3><p>在业余无线电中有很多Q开头的短语，他与英语单词关系不是特别直接，QSL意思为“收妥”</p>
+<blockquote>
+<p>问：QSL? (收妥了吗？)</p>
+<p>答：QSL（已收妥）</p>
+</blockquote>
+<p>QSL卡片是一种确认通联信息的卡，通过相互邮寄自己的卡片来确认。在网络不发达的时代，通信双方通过记录有「时间、地理位置、使用机器、天线、功率、天气、信号报告」等内容的QSL卡片相互确认双方的通联，在今天纸质版的QSL卡片通常是作为明信片相互邮寄。</p>
+<h3 id="验机-设台"><a href="#验机-设台" class="headerlink" title="验机/设台"></a>验机/设台</h3><p>即向无线电关机机构申请设置电台，取得业余无线电台执</p>
+<hr>
+<h3 id="CQ"><a href="#CQ" class="headerlink" title="CQ"></a>CQ</h3><p>seek you , 在发起呼叫时使用，用于广泛呼叫，即没有确切呼叫对象的呼叫</p>
+<p>范例：<code>CQ CQ CQ, 这里是xxxx，是否有友台能够抄收，请给我一个信号报告，谢谢。</code></p>
+<h3 id="抄收"><a href="#抄收" class="headerlink" title="抄收"></a>抄收</h3><p>指明确收到对方的通信，早期无线电靠电报传播，接收时都是抄在纸上，接收到完整的信号就报抄收了。</p>
+<p>不是严格要求，也可以用拷贝了（copy）,Roger （收到）等词。</p>
+<h3 id="功率"><a href="#功率" class="headerlink" title="功率"></a>功率</h3><p>指发射功率，一般最常见的手台设 高功率 低功率 档位，如果知道你的具体功率，在通信时可报给对方，如不清楚就说目前档位：</p>
+<p><code>给您功率5w</code>  、<code>我是用的是高功率</code>  、<code>我是中功发射</code> </p>
+<h3 id="天线-天馈"><a href="#天线-天馈" class="headerlink" title="天线/天馈"></a>天线/天馈</h3><p>天线、天馈系统，常见手台原装的天线、拉杆天线、任丘天线（玻璃钢天线/棒杆天线）、八木天线（一种定向天线，其接收、发射信号具有极强的指向性）、鞭状天线、鹅颈天线、驴鞭天线…</p>
+<p>TODO 图</p>
+<p>天馈系统指的是 「天」和「馈」，即天线和馈线，在特定场景下，你需要天线固定在房顶、阳台、车外。天线与机器由馈线（同轴电缆）连接，组成天馈系统</p>
+<h3 id="QTH"><a href="#QTH" class="headerlink" title="QTH"></a>QTH</h3><p>地理位置，可以是具体的位置，也可以是<a href="#网格">网格</a></p>
+<h3 id="信号报告"><a href="#信号报告" class="headerlink" title="信号报告"></a>信号报告</h3><p><code>你的信号过来59，我的信号怎么样？</code></p>
+<p>在话方式的通讯中，联络双方要报告对方的信号可辩度R、强度S<br>R分为1、2、3、4、5档，1为信号不可辩，5为信号完全可辩；<br>S分为1、2、…、9，分别为信号强度，9为最强，有些机器上有S表显示，超过9的以+10dB、+20dB等表示；</p>
+<p>则 59 表示非常好的信号，若机器上有s表，可以说：<code>你的信号过来59 +10</code></p>
+<p>此外，在报方式通讯中（CW模式，通信时使用摩尔斯电码），还要加上音质T，也分为1~9档，1为很差的音质，比如严重变调，9为很纯正的没有杂音的正弦波音质。</p>
+<h3 id="73-88"><a href="#73-88" class="headerlink" title="73 / 88"></a>73 / 88</h3><p>在通联结束时使用，表示对对方的祝愿，对方是异性则用 88</p>
+<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>&emsp;&emsp;「业余无线电」前两个字听起来有点业余，后三个字听起来有点专业，但我的目的是写一点浅显的东西，以适用于纯小白入坑，就是用大白话说说这件事，难免会有表述不当或者专业性错误，若有错误，请在页面下方评论区底部指出，我会尽快核实并修改。</p>
+<h2 id="什么是业余无线电"><a href="#什么是业余无线电" class="headerlink" title="什么是业余无线电"></a>什么是业余无线电</h2><h3 id="不就是对讲机？"><a href="#不就是对讲机？" class="headerlink" title="不就是对讲机？"></a>不就是对讲机？</h3><p>&emsp;&emsp; 粗暴来看可以这么说，提到对讲机，读者脑海中要么是餐馆工地娱乐会所，要么就是警察军人之类。这些对讲机我们可以称其为 <strong><a href="https://baike.baidu.com/item/%E6%97%A0%E7%BA%BF%E7%94%B5%E5%8F%B0?fromtitle=%E7%94%B5%E5%8F%B0" target="_blank" rel="external nofollow noopener noreferrer">电台</a></strong>。HAM使用的电台最常见的是手台和车台</p>
+<p>TODO: 图</p>
+<h3 id="那为什么不用微信？"><a href="#那为什么不用微信？" class="headerlink" title="那为什么不用微信？"></a>那为什么不用微信？</h3><p>&emsp;&emsp;确实，我不止一次听到这个问题，当然，HAM们也没少听这个问题。</p>
+<p>&emsp;&emsp;业余无线电，和什么羽毛球乒乓球篮球、摄影模型二次元等一样，它就是个兴趣爱好，就是个玩的（其在应急救援、紧急情况下的应用后面会说），爱好者有的是享受通联乐趣，有的是进行技术研究，有的是交叉兴趣领域的需要等，自己开心就好，由此看大可不必将其与微信进行对比。业余无线电作为一种爱好，乐趣可以在很多方面。如实时的通信、探索电磁波的乐趣、天线制作、交换收集QSL卡片、结识志同道合的伙伴等等。</p>
+<h3 id="我能拿它干什么？"><a href="#我能拿它干什么？" class="headerlink" title="我能拿它干什么？"></a>我能拿它干什么？</h3><p>&emsp;&emsp;通常对于入门的玩家来说，使用电台就是与周边的HAM进行通联，再远一点就是通过中继台与中继台周边的HAM通联，虽然这听起来也没那么有意思，但是实际上手来说，按下PTT，和其他爱好者拽一点术语也是很有意思的。也可以使用你的电台无意收听一些铁路、航空的通信。注意，我说的是无意收听。</p>
+<blockquote style="background: #f4433678;color: #fff;border-left: 4px solid #f44336;">
+  <p>
+  注意，对于非业余频率，业余爱好者不得收听、传播
+  </p>
+</blockquote>
+&emsp;&emsp;度过入门阶段，你可以涉猎短波领域，那这往近了来说就是和其他省的HAM通联，远了就是全世界。更有EME(月面反射)通信，即通过月球反射电磁波实现远距离通讯。
+
+<h3 id="我如何入门？"><a href="#我如何入门？" class="headerlink" title="我如何入门？"></a>我如何入门？</h3><p>&emsp;&emsp;参阅 <a href="#初探业余无线电">初探业余无线电</a></p>
+<h2 id="什么不是业余无线电"><a href="#什么不是业余无线电" class="headerlink" title="什么不是业余无线电"></a>什么不是业余无线电</h2><p>&emsp;&emsp;业余无线电不是通信技术的倒退，它可以被理解为简单纯粹的技术研究，可以是爱好者津津乐道的玩物，所以「为什么不用微信？」这种问题与业余无线电是无关的，非要在这二者之间加上联系，那么可以说它们最最最底层的原理都是电磁波。</p>
+<h2 id="初探业余无线电"><a href="#初探业余无线电" class="headerlink" title="初探业余无线电"></a>初探业余无线电</h2><p>&emsp;&emsp;好了，铺垫了这么多，现在开始正题，首先请听一段音频：</p>
+
+        <div id="aplayer-qROBmWnK" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+            <pre class="aplayer-lrc-content"></pre>
+        </div>
+        <script>
+          var ap = new APlayer({
+            element: document.getElementById("aplayer-qROBmWnK"),
+            narrow: false,
+            autoplay: false,
+            showlrc: false,
+            music: {
+              title: "通联示范",
+              author: "园长",
+              url: "https://cdn.yzyyz.top/img/ham/示范.mp3",
+              pic: "",
+              lrc: ""
+            }
+          });
+          window.aplayers || (window.aplayers = []);
+          window.aplayers.push(ap);
+        </script>
+
+<blockquote>
+<p>TODO 音频、 字幕</p>
+</blockquote>
+<p>这是一段示范，不必焦虑，就是给读者听一下，我们继续。</p>
+<h3 id="基本理解"><a href="#基本理解" class="headerlink" title="基本理解"></a>基本理解</h3><p>&emsp;&emsp;最开始，我们知道，玩这个东西，首先最起码得有一个<strong>手台</strong>，我们还知道玩这个东西需要考证，每个人都有一个呼号，那么这些东西之间到底有什么关系呢？我多次拿汽车和驾驶证的关系来举例：</p>
+<p>&emsp;&emsp;<strong>电台就是车，操作证就是驾驶证，呼号就是车牌号</strong></p>
+<p>&emsp;&emsp;注意，我们不能真的像车一样，先给自己的车上牌，而是需要考取操作证后再申请设台、同时取得呼号，操作证是申请呼号时必须的材料之一。</p>
+<p>&emsp;&emsp;其次，呼号是电台呼号，而不是某某人的呼号，日常我们说「谁的呼号是xxxx」，这只是一种生活中默认的说法。</p>
+<p>&emsp;&emsp;另外，对于一个人的多部电台，视为一个业余电台，指配一个电台呼号，但所有设备均应经过核定并将参数载入电台执照。</p>
+<h3 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h3><p>&emsp;&emsp;其实我不是很园艺将设备篇章放在最前面，但是干看文字又太生硬，笔者入门时买的是一个当年的神机：宝峰的UV-5R, 100以内作为入门了解这方面知识的机器再合适不过了。</p>
+<p>&emsp;&emsp;但是今天市面上又多了很多不错的选择，很多人现在一提到入门机器会说泉盛的UV-K5：因为它能刷机啊、刷机完功能多啊还能听短波…但我不太推荐这款作为入门机器，刷机虽然不麻烦，但是要捣腾，还有什么菜单组合按键之类，纯小白入门本来就一头雾水，再加上这些东西更懵了。</p>
+<p>&emsp;&emsp;个人认为纯小白入门机，只要在自己对于入门级的预算之内，U/V双段都有核准，再加上一个航空频就更好了。预算就不用说了，钱的事嘛；U/V双端都有核准以方便以后有证了拿着这个机器去上牌就能合法玩；航空频率就是给入门小白无意收听到航空频一个机会，在入门之初体验更多乐趣。</p>
+<p>所以我推荐的有两款：</p>
+<ul>
+<li><p>宝峰的UV-5RH（此款机器在登记时型号为BF-5RH）</p>
+<ul>
+<li>二手价格 ±130</li>
+<li>京东全新价格 146（宝峰京东自营） 注意是5RH不是5RM</li>
+<li>海鲜市场较少</li>
+</ul>
+</li>
+<li><p>森海克斯的8600 (8800比8600高级但是价格也贵点，斟酌之下还是感觉8600适合入门)  </p>
+<ul>
+<li>二手价格 175-230</li>
+<li>全新价格 268、288、298</li>
+<li>海鲜市场较多</li>
+</ul>
+</li>
+</ul>
+<p>注意，购买二手机器注意甄别最好是没啥毛病的，其次尽量不要验过机的机器</p>
+<p>验机：即向无线电关机机构申请设置电台（就是给电台申请呼号，一般会登记机器的出厂码）</p>
+<p>其实现在全国联网的程度不大，就算对方的机器验过机，你跟对方不是一个地方的问题也不大</p>
+<h3 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h3><p>&emsp;&emsp;现在我们知道要合法使用电台，需要考到操作证、再申请设台，等申请通过，你会得到业余无线电台执照，执照上会载明你的机器，和指配给你的呼号。那么现在我们就要应对考试了。</p>
+<p>&emsp;&emsp;对于考试，分A、B、C三个等级，爱好者只能依次考取A→B→C级操作证，在这之间还有相关的要求需要满足才能考取下一级的操作证。</p>
+<blockquote>
+<p><strong>第二十五条</strong> 业余无线电台操作技术能力分为A类、B类和C类。<br><strong>第二十六条</strong> 参加A类业余无线电台操作技术能力验证的人员，应当熟悉无线电管理规定，具有一定的业余无线电台操作技术能力。<br>参加B类业余无线电台操作技术能力验证的人员，应当依法取得业余无线电台执照6个月以上，且具有相应的实际操作经验。<br>参加C类业余无线电台操作技术能力验证的人员，应当依法取得载明30MHz以下频段的业余无线电台执照18个月以上，且具有相应的实际操作经验。<br><strong>第二十七条</strong> 国家无线电管理机构可以组织实施A类、B类和C类业余无线电台操作技术能力验证。省、自治区、直辖市无线电管理机构可以组织实施A类、B类业余无线电台操作技术能力验证。<br>业余无线电台操作技术能力验证题库以及验证标准由国家无线电管理机构制定并根据需要适时更新，向社会公布。</p>
+</blockquote>
+<p>《业余无线电台管理办法》第三章 操作技术能力验证</p>
+<p>&emsp;&emsp;A/B考试由于各地安排不同，时间地点都由当地相关组织方确定，绝大多数地方的考试通过<a href="http://82.157.138.16:8091/CRAC/crac/login_student.html" target="_blank" rel="external nofollow noopener noreferrer">CRAC官方网页</a>或者<a href="http://www.allspectrum.cn/" target="_blank" rel="external nofollow noopener noreferrer">智谱APP</a>报名（在考试组织方发布考试的情况下），那什么时候会发布呢，这个要关注当地无线电协会/学会/管委，可以通过网页直接搜索，或者在微信搜某某地无线电协会等方式。也可在<a href="https://www.cqid.cn/news/article" target="_blank" rel="external nofollow noopener noreferrer">业余无线电考试资讯最新列表 - 业余无线电考试资讯 (cqid.cn)</a> 查看</p>
+<p>&emsp;&emsp;对于CRAC官网，打开官网→下方能力验证→考生入口，登录后操作</p>
+<a href="https://cdn.yzyyz.top/img/ham/cracbm.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="ham"><img src="https://cdn.yzyyz.top/img/ham/cracbm.jpg"></a>
+
+<hr>
+<p>&emsp;&emsp;对于智谱app，报名入口在下方TAB栏→特别入口-业余无线电爱好者：点击计入→考试报名</p>
+<a href="https://cdn.yzyyz.top/img/ham/zppappbm.jpg" target="_blank" rel="external nofollow noopener noreferrer" data-fancybox="images" data-caption="ham"><img src="https://cdn.yzyyz.top/img/ham/zppappbm.jpg"></a>
+
+<p>&emsp;&emsp;要考试自然就要刷题，对于刚入门需要考A来说，真的非常简单，题库就300多，考试随机取30道（原题不会变），答对25道（含）以上就算通过，题库在文末有直达链接，或者我的json版：<a href="https://github.com/yzyyz1387/cqsat/tree/main/cqsat/cqsat_resource/bank" target="_blank" rel="external nofollow noopener noreferrer">json题库(github.com) </a> 答案都是A，同时也欢迎大家关注我的相关项目：<a href="https://github.com/yzyyz1387/cqsat" target="_blank" rel="external nofollow noopener noreferrer">cqsat</a></p>
+<p>&emsp;我入门时，常通过 <a href="https://cqid.cn" target="_blank" rel="external nofollow noopener noreferrer">cqid.cn</a> 来刷题，虽然网站有些无伤大雅的bug，不过还是挺好用的。同时，还有微信小程序《HAM模拟考试》可以用，图标是一个蓝色背景白色电台。</p>
+<p>&emsp;&emsp;对于刷题，若只是为了通过考试，那你不必懂得其中原理，刷的多了基本上就是秒选，我考A一分钟就答完了，考B是3分钟（因为只刷了一天题，考到的有两道没记住纠结了一下）。再次强调，这个题库里的一些题和最新的《业余无线电管理办法》不符，比如设台年龄限制，现在不要求18岁以上，但是题库中依然是选18岁以上，刷题时请以题库为准。</p>
+<p>记题技巧嘛也有，但是篇幅也挺多，现在懒得写<code>2024年4月19日</code></p>
+<p>待续<code>2024年4月19日</code></p>
+<h2 id="相关文件"><a href="#相关文件" class="headerlink" title="相关文件"></a>相关文件</h2><p><a href="http://www.crac.org.cn/News/Detail?ID=3dbd1bc7f36443958e1872234f42464f" target="_blank" rel="external nofollow noopener noreferrer">考试题库v20211022</a></p>
+<p> <font color="red">注意，对于2024年新颁布的《业余无线电管理办法》，题库v20211022中的个别题目不是与《办法》相符的</font></p>
+<p><a href="https://wap.miit.gov.cn/gyhxxhb/jgsj/cyzcyfgs/bmgz/wxdl/art/2024/art_9a2dba77d86942cebd1e9cbacd2d4b20.html" target="_blank" rel="external nofollow noopener noreferrer">业余无线电台管理办法</a></p>
+<p><a href="https://wap.miit.gov.cn/cms_files/filemanager/1226211233/attach/202312/d850c4f65a9d4df6a3d7fae8e3c4925e.pdf" target="_blank" rel="external nofollow noopener noreferrer">业余无线电台设置、使用申请表</a></p>
+<p><a href="https://wap.miit.gov.cn/cms_files/filemanager/1226211233/attach/20238/e3a97cec523441028cc51de62886101c.pdf" target="_blank" rel="external nofollow noopener noreferrer">业余无线电台呼号编制和核发要求</a></p>
+
           
             <br>
             
@@ -561,40 +700,21 @@ pre{
         
             <div class="prev-next">
                 
-                    <section class="prev">
-                        <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
-                            <h4>
-                                <a href="/archives/10years.html" rel="prev" title="十年有多久">
-                                  
-                                      十年有多久
-                                  
-                                </a>
-                            </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <a class="tag" href="/tags/%E9%9A%8F%E7%AC%94/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 随笔</a>
-                                </h6>
-                            
-                        </span>
-                    </section>
-                
                 
                     <section class="next">
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/archives/1460.html" rel="prev" title="1460">
+                                <a href="/archives/childhood-1.html" rel="prev" title="童年-1">
                                     
-                                        1460
+                                        童年-1
                                     
                                 </a>
                             </h4>
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/%E9%9A%8F%E7%AC%94/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 随笔</a> <a class="tag" href="/tags/%E5%9C%A8%E8%A5%BF%E5%86%9C/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 在西农</a>
+                                    <a class="tag" href="/tags/%E9%9A%8F%E7%AC%94/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 随笔</a> <a class="tag" href="/tags/%E7%AB%A5%E5%B9%B4/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 童年</a>
                                 </h6>
                             
                         </span>
@@ -667,7 +787,7 @@ pre{
 
 
     <div class="content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#写在前面"><span class="toc-number">1.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是业余无线电"><span class="toc-number">2.</span> <span class="toc-text">什么是业余无线电</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么不是业余无线电"><span class="toc-number">3.</span> <span class="toc-text">什么不是业余无线电</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初探业余无线电"><span class="toc-number">4.</span> <span class="toc-text">初探业余无线电</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#本文术语表"><span class="toc-number">1.</span> <span class="toc-text">本文术语表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#电台"><span class="toc-number">1.1.</span> <span class="toc-text">电台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#手台"><span class="toc-number">1.2.</span> <span class="toc-text">手台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#车台"><span class="toc-number">1.3.</span> <span class="toc-text">车台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PTT"><span class="toc-number">1.4.</span> <span class="toc-text">PTT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发射"><span class="toc-number">1.5.</span> <span class="toc-text">发射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通联"><span class="toc-number">1.6.</span> <span class="toc-text">通联</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#频段"><span class="toc-number">1.7.</span> <span class="toc-text">频段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#业余段"><span class="toc-number">1.8.</span> <span class="toc-text">业余段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#U段"><span class="toc-number">1.9.</span> <span class="toc-text">U段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#V段"><span class="toc-number">1.10.</span> <span class="toc-text">V段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#U-V区别？"><span class="toc-number">1.11.</span> <span class="toc-text">U&#x2F;V区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#直频"><span class="toc-number">1.12.</span> <span class="toc-text">直频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中继-中继台"><span class="toc-number">1.13.</span> <span class="toc-text">中继&#x2F;中继台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HAM-火腿"><span class="toc-number">1.14.</span> <span class="toc-text">HAM&#x2F;火腿</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#火腿节-55节-五五节"><span class="toc-number">1.15.</span> <span class="toc-text">火腿节&#x2F;55节&#x2F;五五节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#呼号"><span class="toc-number">1.16.</span> <span class="toc-text">呼号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网格"><span class="toc-number">1.17.</span> <span class="toc-text">网格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QSL卡片"><span class="toc-number">1.18.</span> <span class="toc-text">QSL卡片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#验机-设台"><span class="toc-number">1.19.</span> <span class="toc-text">验机&#x2F;设台</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CQ"><span class="toc-number">1.20.</span> <span class="toc-text">CQ</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抄收"><span class="toc-number">1.21.</span> <span class="toc-text">抄收</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功率"><span class="toc-number">1.22.</span> <span class="toc-text">功率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#天线-天馈"><span class="toc-number">1.23.</span> <span class="toc-text">天线&#x2F;天馈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QTH"><span class="toc-number">1.24.</span> <span class="toc-text">QTH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信号报告"><span class="toc-number">1.25.</span> <span class="toc-text">信号报告</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#73-88"><span class="toc-number">1.26.</span> <span class="toc-text">73 &#x2F; 88</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写在前面"><span class="toc-number">2.</span> <span class="toc-text">写在前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是业余无线电"><span class="toc-number">3.</span> <span class="toc-text">什么是业余无线电</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不就是对讲机？"><span class="toc-number">3.1.</span> <span class="toc-text">不就是对讲机？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#那为什么不用微信？"><span class="toc-number">3.2.</span> <span class="toc-text">那为什么不用微信？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#我能拿它干什么？"><span class="toc-number">3.3.</span> <span class="toc-text">我能拿它干什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#我如何入门？"><span class="toc-number">3.4.</span> <span class="toc-text">我如何入门？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么不是业余无线电"><span class="toc-number">4.</span> <span class="toc-text">什么不是业余无线电</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初探业余无线电"><span class="toc-number">5.</span> <span class="toc-text">初探业余无线电</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本理解"><span class="toc-number">5.1.</span> <span class="toc-text">基本理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设备"><span class="toc-number">5.2.</span> <span class="toc-text">设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#考试"><span class="toc-number">5.3.</span> <span class="toc-text">考试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相关文件"><span class="toc-number">6.</span> <span class="toc-text">相关文件</span></a></li></ol>
     </div>
   </section>
 
@@ -992,7 +1112,7 @@ setInterval("createtime()",250);
    
 <!---字数统计----->
 <i class="fas fa-chart-area"></i>
-<span class="post-count">字数统计：69.8k</span>
+<span class="post-count">字数统计：74k</span>
 <br>
 
 <div style="display:flex;justify-content: center;align-content: center;align-items: center;"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://beian.miit.gov.cn/" style="display: flex;align-content: center;align-items: center;"><img class="icp-icon" src="https://cdn.yzyyz.top/icp.png" alt="ICP"><span>陕ICP备2020016014号-1</span></a>  |  <a href="https://icp.gov.moe/?keyword=20222112" target="_blank" style rel="external nofollow noopener noreferrer">萌ICP备20222112号</a></div>

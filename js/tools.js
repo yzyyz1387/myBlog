@@ -158,4 +158,56 @@ window.onload = function () {
         }
 
     }
+
+    // 时效判断
+    if (window.location.pathname.startsWith('/archives/')) {
+        const dateElements = document.querySelectorAll('.new-meta-item.date');
+        let updateDate = null;
+
+        dateElements.forEach(element => {
+            const dateTime = element.getAttribute('datetime');
+            if (dateTime) {
+                updateDate = new Date(dateTime);
+            }
+        });
+
+        if (updateDate) {
+            const currentDate = new Date();
+
+            // Calculate the difference in milliseconds
+            const diff = currentDate - updateDate;
+
+            // Convert the difference to months
+            const diffInMonths = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44)); // Use 30.44 to account for average month length
+
+            if (diffInMonths > 1) {
+                let message = '此文最后更新距今已';
+                if (diffInMonths >= 12) {
+                    const years = Math.floor(diffInMonths / 12);
+                    const remainingMonths = diffInMonths % 12;
+                    if (remainingMonths === 0) {
+                        message += `${years}年`;
+                    } else {
+                        message += `${years}年${remainingMonths}个月`;
+                    }
+                } else {
+                    message += `${diffInMonths}个月`;
+                }
+                message += '，请注意内容时效';
+
+                const blockquote = document.createElement('blockquote');
+                blockquote.setAttribute('style', 'background: #f4433678;color: #fff;border-left: 4px solid #f44336;');
+                const p = document.createElement('p');
+                p.textContent = message;
+                blockquote.appendChild(p);
+
+                const articleBody = document.querySelector('.article-entry[itemprop="articleBody"]');
+                if (articleBody) {
+                    articleBody.insertBefore(blockquote, articleBody.firstChild);
+                }
+            }
+        } else {
+            console.error('Element with datetime attribute not found.');
+        }
+    }
 }

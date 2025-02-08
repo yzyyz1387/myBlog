@@ -1874,46 +1874,83 @@ pre{
 <!-----运行时间------->
 <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
 <script>
-    var now = new Date(); 
-    function createtime() { 
-        var grt= new Date("02/27/2020 14:04:15");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
-        now.setTime(now.getTime()+250); 
-        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
-        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
-        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
-        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
-        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
-        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
-        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
-    } 
-setInterval("createtime()",250);
+  function createtime() {
+    const now = new Date();
+    const grt = new Date("02/27/2020 14:04:15"); // 在此处修改你的建站时间，格式：月/日/年 时:分:秒
+    const timeDiff = now - grt;
+
+    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    const years = Math.floor(days / 365);
+    const months = Math.floor((days % 365) / 30);
+    const remainingDays = days % 30;
+
+    const hours = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((timeDiff / (1000 * 60)) % 60);
+    const seconds = Math.floor((timeDiff / 1000) % 60);
+
+    const hnum = hours.toString().padStart(2, '0');
+    const mnum = minutes.toString().padStart(2, '0');
+    const snum = seconds.toString().padStart(2, '0');
+
+    let timeString = `本站已安全运行 `;
+    if (years > 0) {
+      timeString += `${years} 年 `;
+    }
+    if (months > 0) {
+      timeString += `${months} 月 `;
+    }
+    if (remainingDays > 0 || (years === 0 && months === 0)) {
+      timeString += `${remainingDays} 天 `;
+    }
+
+    document.getElementById("timeDate").innerHTML = timeString;
+    document.getElementById("times").innerHTML = `${hnum} 小时 ${mnum} 分 ${snum} 秒`;
+  }
+
+  setInterval(createtime, 250);
 </script>
 
 <br>
 <span id="loveDate">载入天数...</span><span id="timesl">载入时分秒...</span>
-    <script>
-      var nowl = new Date();
-      function createtimel() {
-        var grtl= new Date("03/05/2022 22:00:00");
-        nowl.setTime(nowl.getTime()+250);
-        daysl = (nowl - grtl ) / 1000 / 60 / 60 / 24;
-        dnuml = Math.floor(daysl);
-        hoursl = (nowl - grtl ) / 1000 / 60 / 60 - (24 * dnuml);
-        hnuml = Math.floor(hoursl);
-        if(String(hnuml).length ==1 )
-        {hnuml = "0" + hnuml;}
-        minutesl = (nowl - grtl ) / 1000 /60 - (24 * 60 * dnuml) - (60 * hnuml);
-        mnuml = Math.floor(minutesl); if(String(mnuml).length ==1 ){mnuml = "0" + mnuml;}
-        secondsl = (nowl - grtl ) / 1000 - (24 * 60 * 60 * dnuml) - (60 * 60 * hnuml) - (60 * mnuml);
-        snuml = Math.round(secondsl); if(String(snuml).length ==1 ){snuml = "0" + snuml;}
-        document.getElementById("loveDate").innerHTML = "已恋爱💕 "+dnuml+" 天 ";
-        document.getElementById("timesl").innerHTML = hnuml + " 小时 " + mnuml + " 分 " + snuml + " 秒";
-      }
-      setInterval("createtimel()",250);
-    </script> 
+                <script>
+          function createtimel() {
+            const nowl = new Date();
+            const grtl = new Date("03/05/2022 22:00:00");
+            const timeDiff = nowl - grtl;
+        
+            const daysl = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const yearsl = Math.floor(daysl / 365);
+            const monthsl = Math.floor((daysl % 365) / 30);
+            const remainingDaysl = daysl % 30;
+        
+            const hoursl = Math.floor((timeDiff / (1000 * 60 * 60)) % 24);
+            const minutesl = Math.floor((timeDiff / (1000 * 60)) % 60);
+            const secondsl = Math.floor((timeDiff / 1000) % 60);
+        
+            const hnuml = hoursl.toString().padStart(2, '0');
+            const mnuml = minutesl.toString().padStart(2, '0');
+            const snuml = secondsl.toString().padStart(2, '0');
+        
+            let timeStringl = `已恋爱💕 `;
+            if (yearsl > 0) {
+              timeStringl += `${yearsl} 年 `;
+            }
+            if (monthsl > 0) {
+              timeStringl += `${monthsl} 月 `;
+            }
+            if (remainingDaysl > 0 || (yearsl === 0 && monthsl === 0)) {
+              timeStringl += `${remainingDaysl} 天 `;
+            }
+        
+            document.getElementById("loveDate").innerHTML = timeStringl;
+            document.getElementById("timesl").innerHTML = `${hnuml} 小时 ${mnuml} 分 ${snuml} 秒`;
+          }
+        
+          setInterval(createtimel, 250);
+        </script>
    
 <!---字数统计----->
+<br>
 <i class="fas fa-chart-area"></i>
 <span class="post-count">字数统计：78.9k</span>
 <br>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="一款简单易用的图片水印工具，支持文字和Logo图水印，本地处理，保护隐私。">
+  <meta name="keywords" content="在线图片水印, 在线加水印,水印工具, 图片水印, 本地水印, 文字水印, Logo水印, 前端工具">
+  <title>水印工具 - 园长</title>
+
+  <style>
+    :root { --primary: #2563eb; --bg: #f8fafc; --panel: #ffffff; --border: #cbd5e1; --text: #334155; }
+
+    /* === 基础重置 === */
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text); height: 100vh; display: flex; overflow: hidden; }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    /* === 布局系统 === */
+    .app-container { display: flex; width: 100%; height: 100%; }
+
+    .sidebar {
+      width: 380px; background: var(--panel); border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; height: 100%; overflow-y: auto;
+      padding: 20px; z-index: 20; box-shadow: 2px 0 10px rgba(0,0,0,0.02); flex-shrink: 0;
+    }
+
+    .main-area { flex: 1; display: flex; flex-direction: column; background: #e2e8f0; position: relative; min-width: 0; }
+
+    .canvas-wrapper {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      padding: 20px; overflow: hidden; width: 100%; height: 100%;
+    }
+
+    canvas {
+      display: block; max-width: 100%; max-height: 100%; width: auto; height: auto;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0iI2VlZSI+PHJlY3Qgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiAvPjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiAvPjwvc3ZnPg==');
+    }
+
+    /* === 响应式适配 === */
+    @media (max-width: 900px) {
+      body { height: auto; overflow: auto; }
+      .app-container { flex-direction: column; height: auto; }
+      .main-area {
+        height: 50vh; min-height: 300px; order: 1; position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--border);
+      }
+      .canvas-wrapper { padding: 10px; background: #e2e8f0; }
+      .sidebar {
+        width: 100%; height: auto; order: 2; border-right: none; overflow-y: visible; padding-bottom: 50px;
+      }
+      h2 { font-size: 16px; margin-bottom: 15px; }
+      .btn-primary { padding: 15px; font-size: 16px; }
+    }
+
+    /* === 组件样式 === */
+    h2 { font-size: 18px; margin: 0 0 20px 0; color: #0f172a; display: flex; align-items: center; gap: 8px; }
+    .group { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #f1f5f9; }
+    .group:last-of-type { border: none; }
+    label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; color: #64748b; }
+
+    input[type="text"], input[type="number"], select { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; box-sizing: border-box; }
+    input[type="range"] { width: 100%; cursor: pointer; accent-color: var(--primary); height: 20px; }
+    .control-row { display: flex; align-items: center; gap: 10px; }
+    .control-row input[type="range"] { flex: 1; }
+    .control-row input[type="number"] { width: 60px; text-align: center; }
+
+    /* 上传框核心修复：pointer-events */
+    .upload-zone {
+      background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px;
+      padding: 20px; text-align: center; cursor: pointer; position: relative;
+      transition: all 0.2s;
+    }
+    .upload-zone:hover, .upload-zone.drag-over { border-color: var(--primary); background: #eff6ff; }
+
+    /* 关键：让内部元素不拦截鼠标事件 */
+    .upload-zone * { pointer-events: none; }
+
+    .upload-zone.small { padding: 12px; }
+    .upload-zone svg { width: 24px; height: 24px; color: #94a3b8; margin-bottom: 5px; }
+    .upload-zone p { margin: 0; font-size: 13px; color: #64748b; }
+
+    .mode-tabs { display: flex; background: #f1f5f9; padding: 4px; border-radius: 8px; margin-bottom: 15px; }
+    .tab-item { flex: 1; text-align: center; padding: 8px; font-size: 13px; cursor: pointer; border-radius: 6px; color: #64748b; font-weight: 600; transition: 0.2s; }
+    .tab-item.active { background: white; color: var(--primary); box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+
+    .pos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: 100%; max-width: 180px; margin: 0 auto; }
+    .pos-cell { aspect-ratio: 1; background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 4px; cursor: pointer; position: relative; }
+    .pos-cell.active { background: var(--primary); border-color: var(--primary); }
+    .pos-cell::after { content: ''; position: absolute; width: 6px; height: 6px; background: #cbd5e1; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .pos-cell.active::after { background: white; }
+
+    .btn-primary { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 6px; cursor: pointer; font-weight: 600; width: 100%; }
+
+    .app-footer { background: #fff; padding: 10px 20px; font-size: 12px; color: #94a3b8; display: flex; justify-content: space-between; border-top: 1px solid #e2e8f0; }
+    .hidden { display: none !important; }
+    .badge { background: #ecfdf5; color: #059669; font-size: 11px; padding: 2px 6px; border-radius: 4px; margin-left: auto; }
+
+    #pcFooter a{
+        color: #64748b; text-decoration: none;
+    }
+    #pcFooter a:hover{
+      color: #2563eb;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="app-container">
+  <div class="sidebar">
+    <h2>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+      水印助手 <span class="badge">本地运行 保证隐私</span>
+    </h2>
+
+    <div class="group">
+      <div class="upload-zone" id="mainDropZone" onclick="document.getElementById('fileInput').click()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+        <p>点击选择图片 (支持拖拽)</p>
+        <input type="file" id="fileInput" accept="image/*" hidden>
+      </div>
+    </div>
+
+    <div class="group">
+      <label>水印内容</label>
+      <div class="mode-tabs">
+        <div class="tab-item active" id="typeText" onclick="switchContentType('text')">文字</div>
+        <div class="tab-item" id="typeImage" onclick="switchContentType('image')">Logo图</div>
+      </div>
+
+      <div id="textControls">
+        <input type="text" id="watermarkText" value="仅供实名认证" placeholder="输入文字" oninput="saveAndDraw()" style="margin-bottom:12px;">
+        <label style="font-size:12px; color:#64748b; font-weight:normal;">颜色</label>
+        <input type="color" id="color" value="#ffffff" style="width:100%; height:36px; margin-bottom:12px;" oninput="saveAndDraw()">
+        <label style="font-size:12px; color:#64748b; font-weight:normal;">字号 (px)</label>
+        <div class="control-row">
+          <input type="range" id="fontSizeRange" min="10" max="200" value="30" oninput="syncInput('fontSizeRange', 'fontSizeInput')">
+          <input type="number" id="fontSizeInput" value="30" oninput="syncInput('fontSizeInput', 'fontSizeRange')">
+        </div>
+      </div>
+
+      <div id="imageControls" class="hidden">
+        <div class="upload-zone small" id="logoDropZone" onclick="document.getElementById('logoInput').click()">
+          <p id="logoName">点击上传 Logo (PNG)</p>
+          <input type="file" id="logoInput" accept="image/*" hidden>
+        </div>
+        <label style="margin-top:10px; font-weight:normal; font-size:12px;">缩放 (%)</label>
+        <div class="control-row">
+          <input type="range" id="logoScaleRange" min="10" max="200" value="100" oninput="syncInput('logoScaleRange', 'logoScaleInput')">
+          <input type="number" id="logoScaleInput" value="100" oninput="syncInput('logoScaleInput', 'logoScaleRange')">
+        </div>
+      </div>
+
+      <div style="margin-top:15px; border-top:1px dashed #e2e8f0; padding-top:15px;">
+        <label style="font-weight:normal; font-size:12px; color:#64748b;">透明度 (0-1)</label>
+        <div class="control-row">
+          <input type="range" id="opacityRange" min="0" max="1" step="0.05" value="0.3" oninput="syncInput('opacityRange', 'opacityInput')">
+          <input type="number" id="opacityInput" min="0" max="1" step="0.05" value="0.3" oninput="syncInput('opacityInput', 'opacityRange')" onchange="validateOpacity(this)">
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <label>布局模式</label>
+      <div class="mode-tabs">
+        <div class="tab-item active" id="modeTile" onclick="switchLayoutMode('tile')">全屏铺满</div>
+        <div class="tab-item" id="modeSingle" onclick="switchLayoutMode('single')">单点定位</div>
+      </div>
+
+      <div id="tileSettings">
+        <select id="tileStyle" onchange="saveAndDraw()" style="margin-bottom:10px;">
+          <option value="grid-left">↘ 斜向右下</option>
+          <option value="grid-right">↙ 斜向左下</option>
+          <option value="grid-cross">❌ 交叉防盗</option>
+        </select>
+        <label style="font-weight:normal; font-size:12px;">间距</label>
+        <input type="range" id="gap" min="100" max="600" step="20" value="250" oninput="saveAndDraw()">
+        <div id="lineSettings" style="margin-top:10px;">
+          <label style="font-weight:normal; font-size:12px;">连线 (自动避让)</label>
+          <select id="lineStyle" onchange="saveAndDraw()">
+            <option value="solid">实线</option>
+            <option value="dashed" selected>虚线 (默认)</option>
+            <option value="none">无连线</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="singleSettings" class="hidden">
+        <div class="pos-grid" id="gridSelector">
+          <div class="pos-cell" onclick="setGridPos(0)"></div>
+          <div class="pos-cell" onclick="setGridPos(1)"></div>
+          <div class="pos-cell" onclick="setGridPos(2)"></div>
+          <div class="pos-cell" onclick="setGridPos(3)"></div>
+          <div class="pos-cell active" onclick="setGridPos(4)"></div>
+          <div class="pos-cell" onclick="setGridPos(5)"></div>
+          <div class="pos-cell" onclick="setGridPos(6)"></div>
+          <div class="pos-cell" onclick="setGridPos(7)"></div>
+          <div class="pos-cell" onclick="setGridPos(8)"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group">
+      <button class="btn-primary" onclick="downloadImage()">保存图片</button>
+    </div>
+
+    <div class="app-footer" style="border:none; padding:0; flex-direction:column; gap:5px; margin-top:10px;">
+      <div>© 2025 水印助手</div>
+<!--      <a href="#" style="color:#2563eb; text-decoration:none;">查看教程</a>-->
+    </div>
+  </div>
+
+  <div class="main-area">
+    <div class="canvas-wrapper">
+      <canvas id="canvas"></canvas>
+      <p id="tip" style="position:absolute; color:#94a3b8; pointer-events:none;">请上传图片</p>
+    </div>
+
+    <div class="app-footer" id="pcFooter">
+      <div><a href="https://beian.miit.gov.cn/" target="_blank">陕ICP备2020016014号-1</a></div>
+      <div>纯前端处理，不上传服务器</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const state = { img: null, logo: null, contentType: 'text', layoutMode: 'tile', singlePos: 4, saveTimeout: null };
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+
+  // 双向绑定
+  function syncInput(srcId, targetId) {
+    document.getElementById(targetId).value = document.getElementById(srcId).value;
+    saveAndDraw();
+  }
+  // 校验
+  function validateOpacity(input) {
+    let val = parseFloat(input.value);
+    if (isNaN(val)) val = 0.5;
+    if (val < 0) val = 0; if (val > 1) val = 1;
+    input.value = val; document.getElementById('opacityRange').value = val; saveAndDraw();
+  }
+
+  // 初始化
+  window.onload = () => {
+    loadSettings();
+    checkMobile();
+
+    // 绑定拖拽
+    bindDragDrop('mainDropZone', f=>{if(f.type.startsWith('image/')) loadImg(f,'main')});
+    bindDragDrop('logoDropZone', f=>{if(f.type.startsWith('image/')) loadImg(f,'logo')});
+  };
+  window.onresize = checkMobile;
+
+  function checkMobile() {
+    const isMobile = window.innerWidth <= 900;
+    document.getElementById('pcFooter').style.display = isMobile ? 'none' : 'flex';
+  }
+
+  // 拖拽核心逻辑
+  function bindDragDrop(id, cb) {
+    const z = document.getElementById(id);
+    // 添加 drag-over 样式
+    z.addEventListener('dragover', e=>{
+      e.preventDefault();
+      e.stopPropagation();
+      z.classList.add('drag-over');
+    });
+    // 移除 drag-over 样式
+    z.addEventListener('dragleave', e=>{
+      e.preventDefault();
+      e.stopPropagation();
+      z.classList.remove('drag-over');
+    });
+    // 处理 drop
+    z.addEventListener('drop', e=>{
+      e.preventDefault();
+      e.stopPropagation();
+      z.classList.remove('drag-over');
+      if(e.dataTransfer.files.length) cb(e.dataTransfer.files[0]);
+    });
+  }
+
+  // 绑定点击上传
+  document.getElementById('fileInput').addEventListener('change', e=>{if(e.target.files.length) loadImg(e.target.files[0],'main')});
+  document.getElementById('logoInput').addEventListener('change', e=>{if(e.target.files.length) loadImg(e.target.files[0],'logo')});
+
+  function loadImg(file, type) {
+    const r = new FileReader();
+    r.onload = e => {
+      const i = new Image();
+      i.onload = () => {
+        if(type==='main'){ state.img=i; document.getElementById('tip').classList.add('hidden'); }
+        else { state.logo=i; document.getElementById('logoName').innerText="Logo已加载"; switchContentType('image'); }
+        draw();
+      }
+      i.src = e.target.result;
+    }
+    r.readAsDataURL(file);
+  }
+
+  // 交互逻辑
+  function switchContentType(t) {
+    state.contentType=t; toggleTab('type',t);
+    document.getElementById('textControls').classList.toggle('hidden', t!=='text');
+    document.getElementById('imageControls').classList.toggle('hidden', t!=='image');
+    document.getElementById('lineSettings').style.display = (t==='text')?'block':'none';
+    saveAndDraw();
+  }
+  function switchLayoutMode(m) {
+    state.layoutMode=m; toggleTab('mode',m);
+    document.getElementById('tileSettings').classList.toggle('hidden', m!=='tile');
+    document.getElementById('singleSettings').classList.toggle('hidden', m!=='single');
+    saveAndDraw();
+  }
+  function toggleTab(p,v) {
+    ['text','image','tile','single'].forEach(o=>{
+      const e=document.getElementById(p+capitalize(o));
+      if(e) e.classList.toggle('active', o===v);
+    });
+  }
+  function capitalize(s) { return s.charAt(0).toUpperCase()+s.slice(1); }
+  function setGridPos(i) {
+    state.singlePos=i;
+    document.querySelectorAll('.pos-cell').forEach((c,idx)=>c.classList.toggle('active',idx===i));
+    saveAndDraw();
+  }
+
+  // 存储
+  function saveAndDraw() {
+    const s = {
+      text: document.getElementById('watermarkText').value,
+      color: document.getElementById('color').value,
+      fontSize: document.getElementById('fontSizeInput').value,
+      logoScale: document.getElementById('logoScaleInput').value,
+      opacity: document.getElementById('opacityInput').value,
+      tileStyle: document.getElementById('tileStyle').value,
+      gap: document.getElementById('gap').value,
+      lineStyle: document.getElementById('lineStyle').value,
+      contentType: state.contentType, layoutMode: state.layoutMode, singlePos: state.singlePos
+    };
+    localStorage.setItem('wm_fix_v2', JSON.stringify(s));
+    clearTimeout(state.saveTimeout); state.saveTimeout = setTimeout(draw, 20);
+  }
+  function loadSettings() {
+    const s = JSON.parse(localStorage.getItem('wm_fix_v2'));
+    if(s) {
+      document.getElementById('watermarkText').value=s.text||'';
+      document.getElementById('color').value=s.color||'#ffffff';
+      document.getElementById('tileStyle').value=s.tileStyle||'grid-left';
+      document.getElementById('gap').value=s.gap||250;
+      document.getElementById('lineStyle').value=s.lineStyle||'dashed';
+      const setVal = (k,v) => { document.getElementById(k+'Input').value=v; document.getElementById(k+'Range').value=v; }
+      setVal('fontSize', s.fontSize||30); setVal('logoScale', s.logoScale||100); setVal('opacity', s.opacity||0.3);
+      if(s.contentType) switchContentType(s.contentType);
+      if(s.layoutMode) switchLayoutMode(s.layoutMode);
+      if(s.singlePos!==undefined) setGridPos(s.singlePos);
+    }
+  }
+
+  // 绘图核心
+  function draw() {
+    if(!state.img) return;
+    canvas.width = state.img.width;
+    canvas.height = state.img.height;
+    ctx.drawImage(state.img, 0, 0);
+
+    ctx.globalAlpha = parseFloat(document.getElementById('opacityInput').value);
+
+    let drawFn;
+    const currentFontSize = parseInt(document.getElementById('fontSizeInput').value);
+    let textWidth = 0;
+
+    if(state.contentType==='text') {
+      const txt = document.getElementById('watermarkText').value;
+      ctx.font = `bold ${currentFontSize}px sans-serif`;
+      ctx.fillStyle = document.getElementById('color').value;
+      ctx.textBaseline = 'middle'; ctx.textAlign = 'center';
+      textWidth = ctx.measureText(txt).width;
+      drawFn = (x,y) => ctx.fillText(txt,x,y);
+    } else {
+      if(!state.logo) return;
+      const s = parseInt(document.getElementById('logoScaleInput').value)/100;
+      const w=state.logo.width*s, h=state.logo.height*s;
+      drawFn = (x,y) => ctx.drawImage(state.logo, x-w/2, y-h/2, w, h);
+    }
+
+    if(state.layoutMode==='tile') {
+      const style = document.getElementById('tileStyle').value;
+      const gap = parseInt(document.getElementById('gap').value);
+      const ls = document.getElementById('lineStyle').value;
+      const diag = Math.sqrt(canvas.width**2 + canvas.height**2);
+      const enableLine = (state.contentType==='text' && ls!=='none');
+
+      if(enableLine) {
+        ctx.strokeStyle = ctx.fillStyle;
+        ctx.lineWidth = Math.max(1, currentFontSize * 0.05);
+        ctx.setLineDash(ls==='dashed'?[8,8]:[]);
+      }
+
+      const drawGrid = (ang) => {
+        ctx.save(); ctx.translate(canvas.width/2,canvas.height/2); ctx.rotate(ang*Math.PI/180); ctx.translate(-canvas.width/2,-canvas.height/2);
+        const cx=canvas.width/2, cy=canvas.height/2, limit=diag/2+gap;
+        const horizontalGap = gap * 1.5;
+        const margin = 20;
+
+        for(let y=cy-limit; y<cy+limit; y+=gap) {
+          for(let x=cx-limit; x<cx+limit; x+=horizontalGap) {
+            const ox = (Math.floor((y-cy)/gap)%2===0)?0:gap*0.75;
+            const currentX = x + ox;
+
+            // 1. 文字
+            drawFn(currentX, y);
+
+            // 2. 线 
+            if (enableLine) {
+              ctx.beginPath();
+              const lineStart = currentX + textWidth/2 + margin;
+              const lineEnd = currentX + horizontalGap - textWidth/2 - margin;
+
+              if(lineEnd > lineStart) {
+                ctx.moveTo(lineStart, y);
+                ctx.lineTo(lineEnd, y);
+                ctx.stroke();
+              }
+            }
+          }
+        }
+        ctx.restore();
+      }
+      if(style==='grid-cross'){ drawGrid(45); drawGrid(-45); }
+      else drawGrid(style==='grid-left'?45:-45);
+    } else {
+      const p=40, w=canvas.width, h=canvas.height;
+      const i=state.singlePos, r=Math.floor(i/3), c=i%3;
+      let x=(c===0)?p+20:(c===1)?w/2:w-p-20;
+      let y=(r===0)?p+20:(r===1)?h/2:h-p-20;
+      if(state.contentType==='text') ctx.textAlign=(c===0)?'left':(c===1)?'center':'right';
+      drawFn(x,y);
+    }
+  }
+
+  function downloadImage() {
+    if(!state.img) return alert("请先上传图片");
+    const a = document.createElement('a');
+    a.download = `watermark_${Date.now()}.jpg`;
+    a.href = canvas.toDataURL('image/jpeg', 0.92);
+    a.click();
+  }
+</script>
+</body>
+</html>

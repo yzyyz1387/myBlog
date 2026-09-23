@@ -1,0 +1,97 @@
+    - name:  今天是晴天
+      avatar:  https://img-ldb.oss-cn-hangzhou.aliyuncs.com/img/Head.jpg 
+      url: https://www.luodeb.top/   
+      backgroundColor: '#53b9df'
+      textColor: '#fff'  
+      desc: 今天是晴天
+
+
+    - name:  睿先森
+      avatar: https://senorui.top/img/home/avatar.webp
+      url: https://senorui.top/   
+      backgroundColor: '#a8c2ef'
+      textColor: '#fff'  
+      desc: When the night is darkest, dawn is nearest.
+
+    - name:  鲸一
+      avatar:  https://www.saroin.com/%E9%B2%B8%E4%B8%80.jpg
+      url: https://www.saroin.com
+      tags: [网络工程师]
+      desc: 希望是件美好的事，也许是世间最美好的东西，而美好的事物永不消逝!
+      
+    - name:  booop
+      avatar:  https://api.booop.net/assets/avatar/booop_logo_512_white_background.png
+      url: https://booop.net/
+      desc: 一个隐匿的私人小站
+
+    
+    - name:  Xlencoの博客
+      avatar:  https://q1.qlogo.cn/g?b=qq&nk=1043865083&s=5
+      url: https://xlenco.eu.org
+      desc: 最好的地方是没去过的地方，最好的时光，是回不来的时光
+      
+    - name:  西瓜撞地球
+      avatar:  https://cdn.statically.io/gh/yzyyz1387/blogimages/master/avatar/w-c-e.jpg
+      url: https://bio-w.cn/
+      tags: [ 园艺硕士, 生物佬, 生信]
+      desc: 我在人间贩卖彩虹
+
+
+      
+    - name:  Ribo
+      #avatar:  https://cdn.statically.io/gh/yzyyz1387/blogimages/master/avatar/w-c-e.jpg
+      url: https://ribo-home.top/
+      tags: [ 生信佬, top, 园长舍友]
+      desc: 我在人间贩卖彩虹
+
+      
+    - name:  红气球分享屋
+      avatar: https://www.aicartoon.top/usr/logo/yaso.webp
+      url: https://aicartoon.top
+      desc: 分享个人编程学习、网络资源、记录生活等，每天进步一点点
+    
+
+    - name:  彼格沐博客
+      url: https://www.4wxs.cn/
+      backgroundColor: '#e8e8e8'
+      textColor: '#000'
+      desc: 网络资源、建站、源码分享
+      
+    
+    - name:   曦的世界
+      avatar: https://xiblogs.top/zb_users/upload/2022/12/logo.png
+      url: https://xiblogs.top
+      backgroundColor: '#3b3b3b'
+      textColor: '#fff'  
+      desc: 世界很大，你不孤单
+      
+      
+    - name:   小朊朋友圈 
+      avatar: https://q.qlogo.cn/g?b=qq&nk=227389436&s=640
+      url: https://www.xrpyq.com/
+      backgroundColor: '#59688b'
+      textColor: '#fff'  
+      desc: 隔牖风惊竹，开门雪满山！
+
+    
+    - name:   涛叔
+      avatar: https://cdn.statically.io/gh/yzyyz1387/blogimages/master/avatar/taoshu.png
+      url: https://taoshu.in/
+      backgroundColor: '#2b2b2b'
+      textColor: '#fff'  
+      desc: 涛叔的博客
+    
+      
+    - name:   五柳小生
+      avatar: https://img01.anheyu.com/useruploads/163/2023/07/01/64a02f1065357.jpeg
+      url: https://yanruye.cn/
+      backgroundColor: '#527276'
+      textColor: '#fff'  
+      desc:  面朝大海，春暖花开
+      
+    
+    - name:   LZ‘Blog 
+      avatar: https://wtblog.gitee.io/lzhmm/img/head.png
+      url: https://wtblog.gitee.io/lzhmm/
+      backgroundColor: '#8cb2be'
+      textColor: '#fff' 
